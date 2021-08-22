@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\backend\DashboardController;
+use App\Http\Controllers\backend\VisitorController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +21,16 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+
+//visitors routes
+
+Route::get('visitor/index',[VisitorController::class,'index']);
+Route::get('visitor/create',[VisitorController::class,'create']);
+Route::post('visitor/store',[VisitorController::class,'store']);
+Route::get('visitor/edit/{id}',[VisitorController::class,'edit']);
+Route::post('visitor/update/{id}',[VisitorController::class,'update']);
+Route::get('visitor/destroy/{id}',[VisitorController::class,'destroy']);

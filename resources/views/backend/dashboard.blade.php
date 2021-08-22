@@ -64,6 +64,31 @@
         </div>
         <!-- /.col -->
       </div>
+
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+                <h5>Quick Access</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-8">
+                        <a href="" class="btn btn-info">To Patient</a>
+                        <a href="" class="btn btn-info ml-3">To Doctors</a>
+                        <a href=""class="btn btn-info ml-3">To Managment</a>
+                        <a href=""class="btn btn-info ml-3">Vendor</a>
+                    </div>
+                    <div class="col-4">
+                        <a href="{{ url('visitor/index') }}"class="btn btn-success float-right">Visitor List</a>
+                    </div>
+                </div>
+            </div>
+          </div>
+          <!-- /.card -->
+        </div>
+      </div>
+
       <!-- /.row -->
     </div><!--/. container-fluid -->
   </section>
