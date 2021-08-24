@@ -59,7 +59,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-8">
-                        <a href="" class="btn btn-info"> Patient</a>
+                        <a href="{{ url('patient/index') }}" class="btn btn-info"> Patient</a>
                         <a href="" class="btn btn-info ml-3"> Doctors</a>
                         <a href=""class="btn btn-info ml-3"> Managment</a>
                         <a href=""class="btn btn-info ml-3">Vendor</a>

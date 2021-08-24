@@ -15,25 +15,24 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">All Patient List</h3>
-              <a href="{{ url('patient/create') }}" class="btn btn-primary btn-sm float-right"> <i class="fa fa-plus"></i> Add New</a>
+              <h3 class="card-title">All Doctors List</h3>
+              <a href="{{ url('doctor/create') }}" class="btn btn-primary btn-sm float-right"> <i class="fa fa-plus"></i> Add New</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-              <table id="example2" class="table table-bordered table-hover">
+            <table id="example2" class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                  <th class="text-center">Sl No </th>
-                  <th class="text-center">Name </th>
-                  <th class="text-center">Mobile </th>
-                  <th class="text-center">Ward No </th>
-                  <th class="text-center">Cabin No </th>
-                  <th class="text-center">Seat No </th>
-                  <th class="text-center">Action</th>
+                    <th class="text-center">Sl No </th>
+                    <th class="text-center">Name </th>
+                    <th class="text-center">Mobile </th>
+                    <th class="text-center">Department</th>
+                    <th class="text-center">Designation </th>
+                    <th class="text-center">Action</th>
                 </tr>
                 </thead>
                 <tbody>
-                    @foreach ($patients as $patient_value)
+                    {{-- @foreach ($patients as $patient_value)
                         <tr>
                             <td class="text-center">{{ $loop->iteration }}</td>
                             <td class="text-center"> {{ $patient_value->name }}</td>
@@ -46,7 +45,7 @@
                                 <a href="#" class="btn btn-danger btn-sm"> <i class="fa fa-trash-alt"></i> </a>
                             </td>
                         </tr>
-                    @endforeach
+                    @endforeach --}}
 
               </table>
             </div>

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\backend\DashboardController;
+use App\Http\Controllers\backend\DoctorController;
 use App\Http\Controllers\backend\PatientController;
 use App\Http\Controllers\backend\VisitorController;
 
@@ -55,3 +56,7 @@ Route::post('id_card_generate/store', [VisitorController::class, 'store']);
 Route::get('id_card_generate/edit/{id}', [VisitorController::class, 'edit']);
 Route::post('id_card_generate/update/{id}', [VisitorController::class, 'update']);
 Route::get('id_card_generate/destroy/{id}', [VisitorController::class, 'destroy']);
+
+// doctor list
+
+Route::get('doctor/index', [DoctorController::class, 'index']);
