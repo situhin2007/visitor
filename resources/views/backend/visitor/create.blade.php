@@ -39,7 +39,10 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label>Reference ID</label>
-                  <input type="text" class="form-control" name="reference_id">
+                  <select class="form-control" name="reference_id" id="">
+                    <option value="">---Please Select----</option>
+                    <option value="1234568454">1234568454</option>
+                  </select>
                 </div>
               </div>
 

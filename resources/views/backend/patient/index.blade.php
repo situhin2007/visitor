@@ -15,39 +15,39 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">DataTable with minimal features & hover style</h3>
+              <h3 class="card-title">All Patient List</h3>
+              <a href="{{ url('patient/create') }}" class="btn btn-primary btn-sm float-right"> <i class="fa fa-plus"></i> Add New</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
               <table id="example2" class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                  <th>Rendering engine</th>
-                  <th>Browser</th>
-                  <th>Platform(s)</th>
-                  <th>Engine version</th>
-                  <th>CSS grade</th>
+                  <th>Sl No </th>
+                  <th>Name </th>
+                  <th>Mobile </th>
+                  <th>Ward No </th>
+                  <th>Cabin No </th>
+                  <th>Seat No </th>
+                  <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <td>Trident</td>
-                  <td>Internet
-                    Explorer 4.0
-                  </td>
-                  <td>Win 95+</td>
-                  <td> 4</td>
-                  <td>X</td>
-                </tr>
-                <tr>
-                  <td>Trident</td>
-                  <td>Internet
-                    Explorer 5.0
-                  </td>
-                  <td>Win 95+</td>
-                  <td>5</td>
-                  <td>C</td>
-                </tr>
+                    @foreach ($patients as $patient_value)
+                        <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td> {{ $patient_value->name }}</td>
+                            <td> {{ $patient_value->mobile }}</td>
+                            <td> {{ $patient_value->ward_no }}</td>
+                            <td> {{ $patient_value->cabin_no }}</td>
+                            <td> {{ $patient_value->seat_no }}</td>
+                             <td>
+                                <a href="#" class="btn btn-info btn-sm"> <i class="fa fa-edit"></i> </a>
+                                <a href="#" class="btn btn-danger btn-sm"> <i class="fa fa-trash-alt"></i> </a>
+                            </td>
+                        </tr>
+                    @endforeach
+
               </table>
             </div>
             <!-- /.card-body -->

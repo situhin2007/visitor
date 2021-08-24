@@ -5,12 +5,12 @@
     <div class="container-fluid">
       <!-- Info boxes -->
       <div class="row">
-        <div class="col-12 col-sm-6 col-md-3">
+        <div class="col-12 col-sm-6 col-md-4">
           <div class="info-box">
             <span class="info-box-icon bg-info elevation-1"><i class="fas fa-users"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">Total Visitor</span>
+              <span class="info-box-text"> <a href="{{url('visitor/index')}}"> Total Visitor </a> </span>
               <span class="info-box-number">
                 10
               </span>
@@ -19,25 +19,10 @@
           </div>
           <!-- /.info-box -->
         </div>
-        <!-- /.col -->
-        <div class="col-12 col-sm-6 col-md-3">
-          <div class="info-box mb-3">
-            <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-id-card"></i></span>
-
-            <div class="info-box-content">
-              <span class="info-box-text">Total ID Card</span>
-              <span class="info-box-number">400</span>
-            </div>
-            <!-- /.info-box-content -->
-          </div>
-          <!-- /.info-box -->
-        </div>
-        <!-- /.col -->
-
         <!-- fix for small devices only -->
         <div class="clearfix hidden-md-up"></div>
 
-        <div class="col-12 col-sm-6 col-md-3">
+        <div class="col-12 col-sm-6 col-md-4">
           <div class="info-box mb-3">
             <span class="info-box-icon bg-success elevation-1"><i class="fas fa-id-card"></i></span>
 
@@ -50,7 +35,7 @@
           <!-- /.info-box -->
         </div>
         <!-- /.col -->
-        <div class="col-12 col-sm-6 col-md-3">
+        <div class="col-12 col-sm-6 col-md-4">
           <div class="info-box mb-3">
             <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-id-card"></i></span>
 
@@ -74,9 +59,9 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-8">
-                        <a href="" class="btn btn-info">To Patient</a>
-                        <a href="" class="btn btn-info ml-3">To Doctors</a>
-                        <a href=""class="btn btn-info ml-3">To Managment</a>
+                        <a href="" class="btn btn-info"> Patient</a>
+                        <a href="" class="btn btn-info ml-3"> Doctors</a>
+                        <a href=""class="btn btn-info ml-3"> Managment</a>
                         <a href=""class="btn btn-info ml-3">Vendor</a>
                     </div>
                     <div class="col-4">

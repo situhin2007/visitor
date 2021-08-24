@@ -67,8 +67,8 @@
             </ul>
           </li>
 
-          <li class="nav-item">
-            <a href="#" class="nav-link">
+          <li class="nav-item {{ request()->is('patient/*') ? ' menu-open' :''}}">
+            <a href="javascript:void(0)" class="nav-link {{ request()->is('patient/*') ? 'active' :''}}">
               <i class="nav-icon fas fa-table text-danger"></i>
               <p>
                 Patients
@@ -77,13 +77,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ url('patient/index') }}" class="nav-link {{ request()->is('patient/index') ? 'active' :''}}">
                   <i class="far fa-circle nav-icon text-danger"></i>
                   <p> All Patient</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ url('patient/create') }}" class="nav-link {{ request()->is('patient/create') ? 'active' :''}}">
                   <i class="far fa-circle nav-icon text-danger"></i>
                   <p>Create Patient</p>
                 </a>
@@ -142,7 +142,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-id-card text-danger"></i>
               <p>
-                ID Card
+                ID Card Generate
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
