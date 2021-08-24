@@ -11,13 +11,13 @@
       <!-- SELECT2 EXAMPLE -->
       <div class="card card-default">
         <div class="card-header">
-          <h3 class="card-title">Add New Visitor</h3>
-          <a href="{{ url('visitor/index') }}" class="btn btn-primary btn-sm float-right"> <i class="fa fa-table"></i> All Visitors</a>
+          <h3 class="card-title">Add New Doctor</h3>
+          <a href="{{ url('doctor/index') }}" class="btn btn-primary btn-sm float-right"> <i class="fa fa-table"></i> All Doctors</a>
 
         </div>
         <!-- /.card-header -->
 
-        <form action="{{ url('visitor/store') }}" method="POST">
+        <form action="{{ url('doctor/store') }}" method="POST">
             @csrf
         <div class="card-body">
           <div class="row">
@@ -38,34 +38,15 @@
 
               <div class="col-md-6">
                 <div class="form-group">
-                  <label>Reference No</label>
-                  <select class="form-control" name="reference_id" id="">
-                    <option value="">---Please Select----</option>
-                    @foreach ($patients as $patients_value)
-                        <option value="{{ $patients_value->reference_no }}"> {{ $patients_value->reference_no }} </option>
-                    @endforeach
-                  </select>
+                  <label>Department</label>
+                  <input type="text" class="form-control" name="department">
                 </div>
               </div>
 
-              <div class="col-md-6">
+                <div class="col-md-6">
                 <div class="form-group">
-                  <label>Date</label>
-                  <input type="date" class="form-control" name="visited_date">
-                </div>
-              </div>
-
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label>Check In</label>
-                  <input type="time" class="form-control" name="check_in">
-                </div>
-              </div>
-
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label>Check Out</label>
-                  <input type="time" class="form-control" name="check_out">
+                  <label>Designation</label>
+                  <input type="text" class="form-control" name="designation">
                 </div>
               </div>
 

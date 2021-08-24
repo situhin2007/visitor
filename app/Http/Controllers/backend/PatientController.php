@@ -35,6 +35,7 @@ class PatientController extends Controller
         $patients->ward_no = $request->ward_no;
         $patients->cabin_no = $request->cabin_no;
         $patients->seat_no = $request->seat_no;
+        $patients->reference_no = rand(1000,9999);
         $patients->save();
 
         return redirect('patient/index');

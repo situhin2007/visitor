@@ -29,6 +29,7 @@
                   <th class="text-center">Ward No </th>
                   <th class="text-center">Cabin No </th>
                   <th class="text-center">Seat No </th>
+                  <th class="text-center">Reference No </th>
                   <th class="text-center">Action</th>
                 </tr>
                 </thead>
@@ -41,6 +42,7 @@
                             <td class="text-center"> {{ $patient_value->ward_no }}</td>
                             <td class="text-center"> {{ $patient_value->cabin_no }}</td>
                             <td class="text-center"> {{ $patient_value->seat_no }}</td>
+                            <td class="text-center"> {{ $patient_value->reference_no }}</td>
                             <td class="text-center">
                                 <a href="#" class="btn btn-info btn-sm"> <i class="fa fa-edit"></i> </a>
                                 <a href="#" class="btn btn-danger btn-sm"> <i class="fa fa-trash-alt"></i> </a>

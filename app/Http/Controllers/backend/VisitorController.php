@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Patient;
 use App\Models\Visitor;
 use Illuminate\Http\Request;
 
@@ -17,7 +18,8 @@ class VisitorController extends Controller
 
     public function create()
     {
-        return view('backend.visitor.create');
+        $patients = Patient::all();
+        return view('backend.visitor.create',compact('patients'));
     }
 
     public function store(Request $request)

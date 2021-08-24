@@ -91,25 +91,25 @@
             </ul>
           </li>
 
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-list text-green"></i>
+          <li class="nav-item {{ request()->is('doctor/*') ? ' menu-open' :''}}">
+            <a href="javascript:void(0)" class="nav-link {{ request()->is('doctor/*') ? 'active' :''}}">
+              <i class="nav-icon fas fa-table text-danger"></i>
               <p>
-                Doctors
+                Doctor
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon text-green"></i>
-                  <p> All Doctors</p>
+                <a href="{{ url('doctor/index') }}" class="nav-link {{ request()->is('doctor/index') ? 'active' :''}}">
+                  <i class="far fa-circle nav-icon text-danger"></i>
+                  <p> All Doctor</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon text-danger text-green"></i>
-                  <p>Create Doctors</p>
+                <a href="{{ url('doctor/create') }}" class="nav-link {{ request()->is('doctor/create') ? 'active' :''}}">
+                  <i class="far fa-circle nav-icon text-danger"></i>
+                  <p>Create Doctor</p>
                 </a>
               </li>
             </ul>
@@ -138,9 +138,10 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-id-card text-danger"></i>
+
+          <li class="nav-item {{ request()->is('id_card_generate/*') ? ' menu-open' :''}}">
+            <a href="javascript:void(0)" class="nav-link {{ request()->is('id_card_generate/*') ? 'active' :''}}">
+              <i class="nav-icon fas fa-table text-danger"></i>
               <p>
                 ID Card Generate
                 <i class="fas fa-angle-left right"></i>
@@ -148,13 +149,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ url('id_card_generate/index') }}" class="nav-link {{ request()->is('id_card_generate/index') ? 'active' :''}}">
                   <i class="far fa-circle nav-icon text-danger"></i>
                   <p> All ID Card</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ url('id_card_generate/create') }}" class="nav-link {{ request()->is('id_card_generate/create') ? 'active' :''}}">
                   <i class="far fa-circle nav-icon text-danger"></i>
                   <p>Create ID Card</p>
                 </a>

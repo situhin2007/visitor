@@ -12,7 +12,7 @@
             <div class="info-box-content">
               <span class="info-box-text"> <a href="{{url('visitor/index')}}"> Total Visitor </a> </span>
               <span class="info-box-number">
-                10
+                {{ $total_visitor }}
               </span>
             </div>
             <!-- /.info-box-content -->

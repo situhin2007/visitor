@@ -28,24 +28,25 @@
                     <th class="text-center">Mobile </th>
                     <th class="text-center">Department</th>
                     <th class="text-center">Designation </th>
+                    <th class="text-center">Reference No </th>
                     <th class="text-center">Action</th>
                 </tr>
                 </thead>
                 <tbody>
-                    {{-- @foreach ($patients as $patient_value)
+                    @foreach ($doctors as $doctor_value)
                         <tr>
                             <td class="text-center">{{ $loop->iteration }}</td>
-                            <td class="text-center"> {{ $patient_value->name }}</td>
-                            <td class="text-center"> {{ $patient_value->mobile }}</td>
-                            <td class="text-center"> {{ $patient_value->ward_no }}</td>
-                            <td class="text-center"> {{ $patient_value->cabin_no }}</td>
-                            <td class="text-center"> {{ $patient_value->seat_no }}</td>
+                            <td class="text-center"> {{ $doctor_value->name }}</td>
+                            <td class="text-center"> {{ $doctor_value->mobile }}</td>
+                            <td class="text-center"> {{ $doctor_value->department }}</td>
+                            <td class="text-center"> {{ $doctor_value->designation }}</td>
+                            <td class="text-center"> {{ $doctor_value->reference_no }}</td>
                             <td class="text-center">
                                 <a href="#" class="btn btn-info btn-sm"> <i class="fa fa-edit"></i> </a>
                                 <a href="#" class="btn btn-danger btn-sm"> <i class="fa fa-trash-alt"></i> </a>
                             </td>
                         </tr>
-                    @endforeach --}}
+                    @endforeach
 
               </table>
             </div>
