@@ -19,6 +19,9 @@
               <a href="{{ url('doctor/create') }}" class="btn btn-primary btn-sm float-right"> <i class="fa fa-plus"></i> Add New</a>
             </div>
             <!-- /.card-header -->
+
+            @include('backend.includes.message')
+
             <div class="card-body">
             <table id="example2" class="table table-bordered table-hover">
                 <thead>
@@ -42,8 +45,8 @@
                             <td class="text-center"> {{ $doctor_value->designation }}</td>
                             <td class="text-center"> {{ $doctor_value->reference_no }}</td>
                             <td class="text-center">
-                                <a href="#" class="btn btn-info btn-sm"> <i class="fa fa-edit"></i> </a>
-                                <a href="#" class="btn btn-danger btn-sm"> <i class="fa fa-trash-alt"></i> </a>
+                                <a href="{{ url('doctor/edit', $doctor_value->id) }}" class="btn btn-info btn-sm"> <i class="fa fa-edit"></i> </a>
+                                <a href="{{ url('doctor/destroy', $doctor_value->id) }}" class="btn btn-danger btn-sm"> <i class="fa fa-trash-alt"></i> </a>
                             </td>
                         </tr>
                     @endforeach
