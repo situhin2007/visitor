@@ -26,12 +26,15 @@ class IDCardGenerateController extends Controller
             'serial_no' => 'required',
         ]);
 
-        $doctors = new IdCardGenerate();
-        $doctors->id_card_no = $request->id_card_no;
-        $doctors->serial_no = $request->serial_no;
-        $doctors->save();
+        $id_card_generate = new IdCardGenerate();
+        $id_card_generate->id_card_no = $request->id_card_no;
+        $id_card_generate->serial_no = $request->serial_no;
 
-        return redirect('id_card_generate/index');
+        if ($id_card_generate->save()) {
+            return redirect('id_card_generate/index')->with('success', 'Id number successfully saved.');
+        } else {
+            return back()->with('error', 'Something Error Found, Please try again');
+        }
     }
 
     public function edit($id)
@@ -47,11 +50,26 @@ class IDCardGenerateController extends Controller
             'serial_no' => 'required',
         ]);
 
-        $doctors = IdCardGenerate::findOrFail($id);
-        $doctors->id_card_no = $request->id_card_no;
-        $doctors->serial_no = $request->serial_no;
-        $doctors->save();
+        $id_card_generate = IdCardGenerate::findOrFail($id);
+        $id_card_generate->id_card_no = $request->id_card_no;
+        $id_card_generate->serial_no = $request->serial_no;
 
-        return redirect('id_card_generate/index');
+        if ($id_card_generate->save()) {
+            return redirect('id_card_generate/index')->with('success', 'Id number successfully updated.');
+        } else {
+            return back()->with('error', 'Something Error Found, Please try again');
+        }
+    }
+
+
+    public function destroy($id)
+    {
+        $id_card_generate = IdCardGenerate::findOrFail($id);
+
+        if ($id_card_generate->delete()) {
+            return redirect('doctor/index')->with('success', 'Id number successfully deleted.');
+        } else {
+            return back()->with('error', 'Something Error Found, Please try again');
+        }
     }
 }

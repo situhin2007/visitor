@@ -16,6 +16,7 @@
 
         </div>
         <!-- /.card-header -->
+        @include('backend.includes.message')
 
         <form action="{{ url('id_card_generate/update',$id_card->id) }}" method="POST">
             @csrf

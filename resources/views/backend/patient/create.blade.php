@@ -17,6 +17,8 @@
         </div>
         <!-- /.card-header -->
 
+        @include('backend.includes.message')
+
         <form action="{{ url('patient/store') }}" method="POST">
             @csrf
         <div class="card-body">
