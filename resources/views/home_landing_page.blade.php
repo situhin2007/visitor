@@ -17,7 +17,7 @@
         <!-- Bootstrap CSS / Color Scheme -->
         <link rel="stylesheet" href="{{ asset('assets/frontend/css/default.css') }}" id="theme-color">
     </head>
-    <body>
+    <body style="background-image: url('assets/frontend/img/26363.jpg');">
 
         <!--navigation-->
         <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top sticky-navigation">
@@ -58,7 +58,7 @@
                         <p class="lead mt-4 mb-5">
                             Welcome to Bangladesh Institute of Health Sciences General Hospital
                         </p>
-                        {{-- <p><img class="img-fluid" src="img/mockup.png" alt="Mockup" /></p> --}}
+                        {{-- <p><img class="img-fluid" src="{{ asset('assets/frontend/img/26363.jpg') }}" alt="Mockup" /></p> --}}
                     </div>
                 </div>
             </div>
