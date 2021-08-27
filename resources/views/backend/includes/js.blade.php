@@ -22,4 +22,7 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('assets/backends/dist/js/pages/dashboard2.js')}}"></script>
 
+<!-- Select2 -->
+<script src="{{asset('assets/backends/plugins/select2/js/select2.full.min.js')}}"></script>
+
 @yield('js')

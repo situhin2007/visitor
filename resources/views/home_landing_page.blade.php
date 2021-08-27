@@ -17,7 +17,7 @@
         <!-- Bootstrap CSS / Color Scheme -->
         <link rel="stylesheet" href="{{ asset('assets/frontend/css/default.css') }}" id="theme-color">
     </head>
-    <body style="background-image: url('assets/frontend/img/26363.jpg');">
+    <body style="background-image: url('assets/frontend/img/background.jpg');">
 
         <!--navigation-->
         <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top sticky-navigation">
@@ -28,7 +28,6 @@
             <div class="navbar-brand mx-auto">
                 <img style="width: 170px" src="{{ asset('assets/frontend/logo/download.png') }}" alt="">
             </div>
-
 
             <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse"
                     data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">

@@ -38,6 +38,7 @@ Route::middleware('auth')->group(function () {
     Route::get('visitor/edit/{id}', [VisitorController::class, 'edit']);
     Route::post('visitor/update/{id}', [VisitorController::class, 'update']);
     Route::get('visitor/destroy/{id}', [VisitorController::class, 'destroy']);
+    Route::get('reference_category_select_data', [VisitorController::class, 'reference_category_select_data']);
 
     //patient routes
     Route::get('patient/index', [PatientController::class, 'index']);

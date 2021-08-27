@@ -23,9 +23,9 @@ class PatientController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
-            'mobile' => 'required',
+            'mobile' => 'required|unique:ipd_admitted_patients',
             'ward_no' => 'required',
-            'cabin_no' => 'required',
+            'cabin_no' => 'required|unique:ipd_admitted_patients',
             'seat_no' => 'required',
         ]);
 

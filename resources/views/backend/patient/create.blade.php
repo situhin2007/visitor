@@ -27,35 +27,50 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label>Name</label>
-                <input type="text" class="form-control" name="name">
+                <input type="text" class="form-control  @error('name') is-invalid @enderror" name="name" value="{{old('name')}}">
+                  @if($errors->has('name'))
+                      <span class="text-danger">{{ $errors->first('name') }}</span>
+                  @endif
               </div>
             </div>
 
             <div class="col-md-6">
                 <div class="form-group">
                   <label>Mobile</label>
-                  <input type="text" class="form-control" name="mobile">
+                  <input type="text" class="form-control  @error('mobile') is-invalid @enderror" name="mobile" value="{{old('mobile')}}">
+                    @if($errors->has('mobile'))
+                        <span class="text-danger">{{ $errors->first('mobile') }}</span>
+                    @endif
                 </div>
               </div>
 
               <div class="col-md-6">
                 <div class="form-group">
                   <label>Ward No</label>
-                  <input type="text" class="form-control" name="ward_no">
+                  <input type="text" class="form-control  @error('ward_no') is-invalid @enderror" name="ward_no" value="{{old('ward_no')}}">
+                    @if($errors->has('ward_no'))
+                        <span class="text-danger">{{ $errors->first('ward_no') }}</span>
+                    @endif
                 </div>
               </div>
 
             <div class="col-md-6">
                 <div class="form-group">
                   <label>Cabin No</label>
-                  <input type="text" class="form-control" name="cabin_no">
+                  <input type="text" class="form-control  @error('cabin_no') is-invalid @enderror" name="cabin_no" value="{{old('cabin_no')}}">
+                    @if($errors->has('cabin_no'))
+                        <span class="text-danger">{{ $errors->first('cabin_no') }}</span>
+                    @endif
                 </div>
               </div>
 
               <div class="col-md-6">
                 <div class="form-group">
                   <label>Seat No</label>
-                  <input type="text" class="form-control" name="seat_no">
+                  <input type="text" class="form-control  @error('seat_no') is-invalid @enderror" name="seat_no" value="{{old('seat_no')}}">
+                    @if($errors->has('seat_no'))
+                        <span class="text-danger">{{ $errors->first('seat_no') }}</span>
+                    @endif
                 </div>
               </div>
 
