@@ -25,29 +25,41 @@
 
             <div class="col-md-6">
               <div class="form-group">
-                <label>Name</label>
-                <input type="text" class="form-control" name="name">
+                <label>Name <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" name="name" placeholder="Enter Name">
+                @if($errors->has('name'))
+                      <span class="text-danger">{{ $errors->first('name') }}</span>
+                  @endif
               </div>
             </div>
 
             <div class="col-md-6">
                 <div class="form-group">
-                  <label>Mobile</label>
-                  <input type="text" class="form-control" name="mobile">
+                  <label>Mobile <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" name="mobile" placeholder="Enter Mobile No.">
+                  @if($errors->has('mobile'))
+                    <span class="text-danger">{{ $errors->first('mobile') }}</span>
+                  @endif
                 </div>
               </div>
 
               <div class="col-md-6">
                 <div class="form-group">
-                  <label>Department</label>
-                  <input type="text" class="form-control" name="department">
+                  <label>Department <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" name="department" placeholder="Enter Depertment">
+                  @if($errors->has('department'))
+                    <span class="text-danger">{{ $errors->first('department') }}</span>
+                  @endif
                 </div>
               </div>
 
                 <div class="col-md-6">
                 <div class="form-group">
-                  <label>Designation</label>
-                  <input type="text" class="form-control" name="designation">
+                  <label>Designation <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" name="designation" placeholder="Enter Designation">
+                  @if($errors->has('designation'))
+                    <span class="text-danger">{{ $errors->first('designation') }}</span>
+                  @endif
                 </div>
               </div>
 
@@ -55,7 +67,7 @@
         </div>
         <!-- /.card-body -->
         <div class="card-footer">
-            <button type="submit" class="btn btn-success">Submit</button>
+            <button type="submit" class="btn btn-success">Store</button>
         </div>
     </form>
       </div>

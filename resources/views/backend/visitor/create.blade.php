@@ -26,6 +26,9 @@
               <div class="form-group">
                 <label>Name<span class="text-danger">*</span></label>
                 <input type="text" class="form-control" name="name" placeholder="Enter name">
+                @if($errors->has('name'))
+                    <span class="text-danger">{{ $errors->first('name') }}</span>
+                @endif
               </div>
             </div>
 
@@ -33,6 +36,9 @@
                 <div class="form-group">
                   <label>Mobile<span class="text-danger">*</span></label>
                   <input type="text" class="form-control" name="mobile" placeholder="Enter mobile">
+                  @if($errors->has('mobile'))
+                      <span class="text-danger">{{ $errors->first('mobile') }}</span>
+                  @endif
                 </div>
               </div>
 
@@ -53,7 +59,7 @@
                 <div class="form-group">
                   <label>Reference No<span class="text-danger">*</span></label>
                   <select class="form-control select2bs4" id="reference_id" name="reference_id">
-
+                    <option value="">---Please Select----</option>
                   </select>
                 </div>
               </div>

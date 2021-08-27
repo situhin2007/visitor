@@ -26,8 +26,8 @@
 
             <div class="col-md-6">
               <div class="form-group">
-                <label>Name</label>
-                <input type="text" class="form-control  @error('name') is-invalid @enderror" name="name" value="{{old('name')}}">
+                <label>Name <span class="text-danger">*</span></label>
+                <input type="text" class="form-control  @error('name') is-invalid @enderror" name="name" value="{{old('name')}}" placeholder="Enter Name">
                   @if($errors->has('name'))
                       <span class="text-danger">{{ $errors->first('name') }}</span>
                   @endif
@@ -36,8 +36,8 @@
 
             <div class="col-md-6">
                 <div class="form-group">
-                  <label>Mobile</label>
-                  <input type="text" class="form-control  @error('mobile') is-invalid @enderror" name="mobile" value="{{old('mobile')}}">
+                  <label>Mobile <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control  @error('mobile') is-invalid @enderror" name="mobile" value="{{old('mobile')}}" placeholder="Enter Mobile No.">
                     @if($errors->has('mobile'))
                         <span class="text-danger">{{ $errors->first('mobile') }}</span>
                     @endif
@@ -46,8 +46,8 @@
 
               <div class="col-md-6">
                 <div class="form-group">
-                  <label>Ward No</label>
-                  <input type="text" class="form-control  @error('ward_no') is-invalid @enderror" name="ward_no" value="{{old('ward_no')}}">
+                  <label>Ward No <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control  @error('ward_no') is-invalid @enderror" name="ward_no" value="{{old('ward_no')}}" placeholder="Enter Ward No.">
                     @if($errors->has('ward_no'))
                         <span class="text-danger">{{ $errors->first('ward_no') }}</span>
                     @endif
@@ -56,8 +56,8 @@
 
             <div class="col-md-6">
                 <div class="form-group">
-                  <label>Cabin No</label>
-                  <input type="text" class="form-control  @error('cabin_no') is-invalid @enderror" name="cabin_no" value="{{old('cabin_no')}}">
+                  <label>Cabin No <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control  @error('cabin_no') is-invalid @enderror" name="cabin_no" value="{{old('cabin_no')}}" placeholder="Enter Cabin No.">
                     @if($errors->has('cabin_no'))
                         <span class="text-danger">{{ $errors->first('cabin_no') }}</span>
                     @endif
@@ -66,8 +66,8 @@
 
               <div class="col-md-6">
                 <div class="form-group">
-                  <label>Seat No</label>
-                  <input type="text" class="form-control  @error('seat_no') is-invalid @enderror" name="seat_no" value="{{old('seat_no')}}">
+                  <label>Seat No <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control  @error('seat_no') is-invalid @enderror" name="seat_no" value="{{old('seat_no')}}" placeholder="Enter Seat No.">
                     @if($errors->has('seat_no'))
                         <span class="text-danger">{{ $errors->first('seat_no') }}</span>
                     @endif

@@ -25,15 +25,21 @@
 
             <div class="col-md-6">
               <div class="form-group">
-                <label>ID Number</label>
-                <input type="text" class="form-control" name="id_card_no">
+                <label>ID Number <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" name="id_card_no" placeholder="Enter New ID No. ">
+                @if($errors->has('id_card_no'))
+                    <span class="text-danger">{{ $errors->first('id_card_no') }}</span>
+                @endif
               </div>
             </div>
 
             <div class="col-md-6">
                 <div class="form-group">
-                  <label>Serial Number</label>
-                  <input type="text" class="form-control" name="serial_no">
+                  <label>Serial Number <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" name="serial_no" placeholder="Enter Serial No. (ex: chip no.)">
+                @if($errors->has('serial_no'))
+                    <span class="text-danger">{{ $errors->first('serial_no') }}</span>
+                @endif
                 </div>
               </div>
 
