@@ -22,7 +22,7 @@
             @include('backend.includes.message')
 
             <div class="card-body">
-              <table id="example2" class="table table-bordered table-hover">
+              <table id="patient" class="table table-bordered table-hover">
                 <thead>
                 <tr>
                   <th class="text-center">Sl No </th>
@@ -83,19 +83,7 @@
 
     <script>
         $(function () {
-          $("#example1").DataTable({
-            "responsive": true, "lengthChange": false, "autoWidth": false,
-            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-          }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-          $('#example2').DataTable({
-            "paging": true,
-            "lengthChange": false,
-            "searching": false,
-            "ordering": true,
-            "info": true,
-            "autoWidth": false,
-            "responsive": true,
-          });
+          $('#patient').DataTable({ });
         });
       </script>
 

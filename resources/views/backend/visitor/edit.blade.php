@@ -2,14 +2,198 @@
 
 
 @section('css')
-
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.min.css" rel="stylesheet"/>
 @endsection
 
 @section('content')
+    <section class="content">
+        <div class="container-fluid">
+            <!-- SELECT2 EXAMPLE -->
+            <div class="card card-default">
+                <div class="card-header">
+                    <h3 class="card-title">Edit Visitor</h3>
+                    <a href="{{ url('visitor/index') }}" class="btn btn-primary btn-sm float-right"> <i class="fa fa-table"></i> All Visitors</a>
+
+                </div>
+
+                <!-- /.card-header -->
+                @include('backend.includes.message')
+
+                <form action="{{ url('visitor/update',$visitor->id) }}" method="POST">
+                    @csrf
+                    <div class="card-body">
+                        <div class="row">
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Name<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" name="name" placeholder="Enter name" value="{{$visitor->name}}">
+                                    @if($errors->has('name'))
+                                        <span class="text-danger">{{ $errors->first('name') }}</span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Mobile<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" name="mobile" placeholder="Enter mobile" value="{{$visitor->name}}">
+                                    @if($errors->has('mobile'))
+                                        <span class="text-danger">{{ $errors->first('mobile') }}</span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Reference Category<span class="text-danger">*</span></label>
+                                    <select class="form-control select2bs4" onchange="load_reference_category()" id="reference_category" name="reference_category">
+                                        <option value="">---Please Select----</option>
+                                        <option {{$visitor->reference_category == 'patient' ? 'selected' : ''}} value="patient">Patient</option>
+                                        <option {{$visitor->reference_category == 'doctor' ? 'selected' : ''}} value="doctor">Doctor</option>
+                                        <option {{$visitor->reference_category == 'management' ? 'selected' : ''}} value="management">Management</option>
+                                        <option {{$visitor->reference_category == 'vendor' ? 'selected' : ''}} value="vendor">Vendor</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Reference No<span class="text-danger">*</span></label>
+                                    <select class="form-control select2bs4" id="reference_id" name="reference_id" value="{{$visitor->reference_id}}">
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Reference Name<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" name="visited_ref_name" readonly id="visited_ref_name" value="{{$visitor->visited_ref_name}}">
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Date<span class="text-danger">*</span></label>
+                                    <input type="text" id="visited_date" class="form-control" name="visited_date" placeholder="Enter visited date" value="{{$visitor->visited_date}}">
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Check In<span class="text-danger">*</span></label>
+                                    <input type="time" class="form-control" name="check_in" value="{{$visitor->check_in}}">
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Check Out<span class="text-danger">*</span></label>
+                                    <input type="time" class="form-control" name="check_out" value="{{$visitor->check_out}}">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-success">Update</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- /.container-fluid -->
+    </section>
 
 @endsection
 
 
 @section('js')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
 
+    <script>
+
+        $(document).ready(function() {
+            load_reference_category();
+        });
+
+        $(function () {
+            $("#visited_date").datepicker({
+                dateFormat:'Y-m-d',
+                startDate: new Date()
+            });
+        });
+
+        //Initialize Select2 Elements
+        $('.select2').select2()
+        //Initialize Select2 Elements
+        $('.select2bs4').select2({
+            theme: 'bootstrap4'
+        })
+
+         function load_reference_category() {
+
+            // e.preventDefault();
+            var reference_category = $("#reference_category").val();
+            var reference_id = $("#reference_id").val();
+            var visited_ref_name = $("#visited_ref_name").val();
+
+            var reference_id = '<?php echo $visitor->reference_id; ?>';
+
+            var token = "{{ csrf_token() }}";
+            var url_data = "{{ url('/reference_category_select_data') }}";
+            $.ajax({
+                method: "GET",
+                url: url_data,
+                dataType: "json",
+                data: {
+                    _token: token,
+                    reference_category: reference_category,
+                },
+                success: function(data) {
+
+                    if(data){
+                        $('#reference_id').empty();
+                        $('#reference_id').focus;
+                        $('#reference_id').append('<option value="">--Please select--</option>');
+                        $.each(data, function(key, value){
+                            $('select[name="reference_id"]').append('<option value="'+ value.reference_no +'">' + value.reference_no+ '</option>');
+                            $("#reference_id").val(reference_id);
+                        });
+                    }else{
+                        $('#reference_id').empty();
+                    }
+                },
+                error:function (data) {
+                    console.log(data);
+                }
+            });
+        }
+
+        $("#reference_id").change("change", function() {
+            // e.preventDefault();
+            var reference_category = $("#reference_category").val();
+            var reference_id = $("#reference_id").val();
+
+            var token = "{{ csrf_token() }}";
+            var url_data = "{{ url('reference_id_select_data') }}";
+            $.ajax({
+                method: "GET",
+                url: url_data,
+                dataType: "json",
+                data: {
+                    _token: token,
+                    reference_id: reference_id, reference_category:reference_category
+                },
+                success: function(data) {
+                    $("#visited_ref_name").val(data.name);
+                },
+                error:function (data) {
+                    console.log(data);
+                }
+            });
+        });
+
+    </script>
 @endsection

@@ -15,7 +15,9 @@
           <a href="{{ url('visitor/index') }}" class="btn btn-primary btn-sm float-right"> <i class="fa fa-table"></i> All Visitors</a>
 
         </div>
+
         <!-- /.card-header -->
+          @include('backend.includes.message')
 
         <form action="{{ url('visitor/store') }}" method="POST">
             @csrf
@@ -59,7 +61,7 @@
                 <div class="form-group">
                   <label>Reference No<span class="text-danger">*</span></label>
                   <select class="form-control select2bs4" id="reference_id" name="reference_id">
-                    <option value="">---Please Select----</option>
+
                   </select>
                 </div>
               </div>
@@ -110,8 +112,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
 
     <script>
+
         $(function () {
-            $("#visited_date").datepicker({ dateFormat:'yy-mm-dd' });
+            $("#visited_date").datepicker({
+                dateFormat:'Y-m-d',
+                startDate: new Date()
+            });
         });
 
         //Initialize Select2 Elements
@@ -126,7 +132,7 @@
             var reference_category = $("#reference_category").val();
             var reference_id = $("#reference_id").val();
             var visited_ref_name = $("#visited_ref_name").val();
-            console.log(reference_category);
+
             var token = "{{ csrf_token() }}";
             var url_data = "{{ url('/reference_category_select_data') }}";
             $.ajax({
@@ -138,11 +144,11 @@
                     reference_category: reference_category,
                 },
                 success: function(data) {
-                    // console.log(data[0].name);
+
                     if(data){
                         $('#reference_id').empty();
                         $('#reference_id').focus;
-                        $('#reference_id').append('<option value="">-- Please select--</option>');
+                        $('#reference_id').append('<option value="">--Please select--</option>');
                         $.each(data, function(key, value){
                             $('select[name="reference_id"]').append('<option value="'+ value.reference_no +'">' + value.reference_no+ '</option>');
                         });
@@ -150,6 +156,30 @@
                         $('#reference_id').empty();
                     }
                 },
+                error:function (data) {
+                    console.log(data);
+                }
+            });
+        });
+
+        $("#reference_id").change("change", function() {
+            // e.preventDefault();
+            var reference_category = $("#reference_category").val();
+            var reference_id = $("#reference_id").val();
+
+            var token = "{{ csrf_token() }}";
+            var url_data = "{{ url('reference_id_select_data') }}";
+            $.ajax({
+                method: "GET",
+                url: url_data,
+                dataType: "json",
+                data: {
+                    _token: token,
+                    reference_id: reference_id, reference_category:reference_category
+                },
+                success: function(data) {
+                    $("#visited_ref_name").val(data.name);
+                 },
                 error:function (data) {
                     console.log(data);
                 }

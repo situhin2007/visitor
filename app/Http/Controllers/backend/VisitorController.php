@@ -26,28 +26,78 @@ class VisitorController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request->all());
+        $this->validate($request, [
+            'name' => 'required',
+            'mobile' => 'required',
+//            'reference_id' => 'required|unique:visitors',
+            'reference_category' => 'required',
+            'visited_ref_name' => 'required',
+            'visited_date' => 'required',
+            'check_in' => 'required',
+            'check_out' => 'required',
+        ]);
 
-        $visitors                   = new Visitor();
-        $visitors->name             = $request->name;
-        $visitors->mobile           = $request->mobile;
-        $visitors->reference_id     = $request->reference_id;
-        $visitors->visited_date     = $request->visited_date;
-        $visitors->check_in         = $request->check_in;
-        $visitors->check_out        = $request->check_out;
-        $visitors->save();
+        try {
+            $visitors                       = new Visitor();
+            $visitors->name                 = $request->name;
+            $visitors->mobile               = $request->mobile;
+            $visitors->reference_id         = $request->reference_id;
+            $visitors->reference_category   = $request->reference_category;
+            $visitors->visited_ref_name     = $request->visited_ref_name;
+            $visitors->visited_date         = date('Y-m-d', strtotime($request->visited_date));;
+            $visitors->check_in             = $request->check_in;
+            $visitors->check_out            = $request->check_out;
+            $visitors->save();
 
-        return back();
+            if ($visitors->save()) {
+                return redirect('visitor/index')->with('success', 'Visitor successfully saved.');
+            } else {
+                return back()->with('error', 'Something Error Found, Please try again');
+            }
+        }catch (\Exception $exception){
+            dd($exception);
+        }
     }
 
     public function edit($id)
     {
-        return view('backend.visitor.edit');
+        $visitor = Visitor::findOrFail($id);
+        return view('backend.visitor.edit',compact('visitor'));
     }
 
     public function update(Request $request, $id)
     {
+        $this->validate($request, [
+            'name' => 'required',
+            'mobile' => 'required',
+//            'reference_id' => 'required|unique:visitors',
+            'reference_category' => 'required',
+            'visited_ref_name' => 'required',
+            'visited_date' => 'required',
+            'check_in' => 'required',
+            'check_out' => 'required',
+        ]);
 
+        try {
+            $visitors                       = Visitor::findOrFail($id);
+            $visitors->name                 = $request->name;
+            $visitors->mobile               = $request->mobile;
+            $visitors->reference_id         = $request->reference_id;
+            $visitors->reference_category   = $request->reference_category;
+            $visitors->visited_ref_name     = $request->visited_ref_name;
+            $visitors->visited_date         = date('Y-m-d', strtotime($request->visited_date));;
+            $visitors->check_in             = $request->check_in;
+            $visitors->check_out            = $request->check_out;
+            $visitors->save();
+
+            if ($visitors->save()) {
+                return redirect('visitor/index')->with('success', 'Visitor successfully updated.');
+            } else {
+                return back()->with('error', 'Something Error Found, Please try again');
+            }
+        }catch (\Exception $exception){
+            //dd($exception);
+        }
     }
 
     public function destroy($id)
@@ -73,4 +123,24 @@ class VisitorController extends Controller
             return response()->json(['error' => 'error']);
         }
     }
+
+    public function reference_id_select_data(Request $request)
+    {
+        if ($request->reference_category == "patient"){
+            $patients = Patient::where('reference_no',$request->reference_id)->first();
+            return response()->json($patients);
+        }elseif ($request->reference_category == "doctor"){
+            $doctors = Doctor::all();
+            return response()->json(['data' => $doctors]);
+        }elseif ($request->reference_category == "management"){
+//            $patients = Patient::all();
+//            return response()->json(['data' => $patients]);
+        }elseif ($request->reference_category == "vendor"){
+            $vendors = Vendor::all();
+            return response()->json(['data' => $vendors]);
+        }else{
+            return response()->json(['error' => 'error']);
+        }
+    }
+
 }

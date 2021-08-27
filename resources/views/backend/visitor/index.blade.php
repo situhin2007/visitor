@@ -2,10 +2,11 @@
 
 
 @section('css')
-     <!-- DataTables -->
+
   <link rel="stylesheet" href="{{ asset('assets/backends/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/backends/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/backends/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
+
 @endsection
 
 @section('content')
@@ -19,6 +20,9 @@
               <a href="{{ url('visitor/create') }}" class="btn btn-primary btn-sm float-right"> <i class="fa fa-plus"></i> Add New</a>
             </div>
             <!-- /.card-header -->
+
+              @include('backend.includes.message')
+
             <div class="card-body">
               <table id="visitor" class="table table-bordered table-hover">
                 <thead>
@@ -27,6 +31,8 @@
                   <th>Name</th>
                   <th>Mobile</th>
                   <th>Reference ID</th>
+                  <th>Reference Category</th>
+                  <th>Reference Name</th>
                   <th>Date</th>
                   <th>Check In</th>
                   <th>Check Out</th>
@@ -40,12 +46,14 @@
                             <td>{{ $all_visitor_value->name }}</td>
                             <td>{{ $all_visitor_value->mobile }}</td>
                             <td>{{ $all_visitor_value->reference_id }}</td>
+                            <td>{{ $all_visitor_value->reference_category }}</td>
+                            <td>{{ $all_visitor_value->visited_ref_name }}</td>
                             <td>{{ $all_visitor_value->visited_date }}</td>
                             <td>{{ $all_visitor_value->check_in }}</td>
                             <td>{{ $all_visitor_value->check_out }}</td>
                             <td>
-                                <a href="#" class="btn btn-info btn-sm"> <i class="fa fa-edit"></i> </a>
-                                <a href="#" class="btn btn-danger btn-sm"> <i class="fa fa-trash-alt"></i> </a>
+                                <a href="{{url('visitor/edit',$all_visitor_value->id)}}" class="btn btn-info btn-sm"> <i class="fa fa-edit"></i> </a>
+{{--                                <a href="#" class="btn btn-danger btn-sm"> <i class="fa fa-trash-alt"></i> </a>--}}
                             </td>
                         </tr>
                     @endforeach
@@ -81,13 +89,8 @@
     <script>
         $(function () {
           $('#visitor').DataTable({
-            // "paging": true,
-            // "lengthChange": false,
-            // "searching": false,
-            // "ordering": true,
-            // "info": true,
-            // "autoWidth": false,
-            // "responsive": true,
+           scrollX:'true',
+           scrollY:'true'
           });
         });
       </script>
