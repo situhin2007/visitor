@@ -25,9 +25,11 @@
                 Union
             </a> --}}
 
-            <div class="navbar-brand mx-auto">
-                <img style="width: 170px" src="{{ asset('assets/frontend/logo/download.png') }}" alt="">
-            </div>
+            <a href="{{url('/')}}">
+                <div class="navbar-brand mx-auto">
+                    <img style="width: 170px" src="{{ asset('assets/frontend/logo/download.png') }}" alt="">
+                </div>
+            </a>
 
             <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse"
                     data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,10 +38,10 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#">Pre-Visit</a>
+                        <a class="nav-link page-scroll" href="{{url('pre-visitor')}}">Pre-Visit</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#">Registration</a>
+                        <a class="nav-link page-scroll" href="{{url('visitor-registration')}}">Registration</a>
                     </li>
                     {{-- <li class="nav-item">
                         <a class="nav-link page-scroll" href="{{ route('login') }}">Login</a>
@@ -48,20 +50,7 @@
             </div>
         </nav>
 
-        <!--hero header-->
-        <section class="pt-7 pt-md-8" id="home">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 mx-auto my-auto text-center">
-                        <h1> Bangladesh Institute of Health Sciences Hospital </h1>
-                        <p class="lead mt-4 mb-5">
-                            Welcome to Bangladesh Institute of Health Sciences General Hospital
-                        </p>
-                        {{-- <p><img class="img-fluid" src="{{ asset('assets/frontend/img/26363.jpg') }}" alt="Mockup" /></p> --}}
-                    </div>
-                </div>
-            </div>
-        </section>
+        @yield('home_content')
 
         <!--footer / contact-->
         <footer class="bg-light fixed-bottom" style="height:80px">

@@ -93,7 +93,7 @@
 
           <li class="nav-item {{ request()->is('doctor/*') ? ' menu-open' :''}}">
             <a href="javascript:void(0)" class="nav-link {{ request()->is('doctor/*') ? 'active' :''}}">
-              <i class="nav-icon fas fa-table text-danger"></i>
+              <i class="nav-icon fas fa-table text-green"></i>
               <p>
                 Doctor
                 <i class="fas fa-angle-left right"></i>
@@ -102,13 +102,13 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="{{ url('doctor/index') }}" class="nav-link {{ request()->is('doctor/index') ? 'active' :''}}">
-                  <i class="far fa-circle nav-icon text-danger"></i>
+                  <i class="far fa-circle nav-icon text-green"></i>
                   <p> All Doctor</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ url('doctor/create') }}" class="nav-link {{ request()->is('doctor/create') ? 'active' :''}}">
-                  <i class="far fa-circle nav-icon text-danger"></i>
+                  <i class="far fa-circle nav-icon text-green"></i>
                   <p>Create Doctor</p>
                 </a>
               </li>
@@ -163,29 +163,23 @@
             </ul>
           </li>
 
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-users text-green"></i>
-              <p>
-                Employee
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon text-green"></i>
-                  <p> All Employee</p>
+            <li class="nav-item">
+                <a href="{{url('pre_visitor_registration/index')}}" class="nav-link {{ request()->is('pre_visitor_registration/index') ? 'active' :''}}">
+                    <i class="nav-icon fas fa-users text-green"></i>
+                    <p>
+                        Pre Visitor Registration
+                    </p>
                 </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon text-green"></i>
-                  <p>Create Employee</p>
+            </li>
+
+            <li class="nav-item">
+                <a href="{{url('pre_visitor_request_list/index')}}" class="nav-link {{ request()->is('pre_visitor_request_list/index') ? 'active' :''}}">
+                    <i class="nav-icon fas fa-users text-blue"></i>
+                    <p>
+                        Pre Visitor Request List
+                    </p>
                 </a>
-              </li>
-            </ul>
-          </li>
+            </li>
 
           <li class="nav-item">
             <a href="#" class="nav-link" onclick="document.getElementById('admin-logout').submit()">

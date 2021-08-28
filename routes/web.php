@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\backend\PreVisitorController;
+use App\Http\Controllers\FrontendController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\backend\DashboardController;
 use App\Http\Controllers\backend\DoctorController;
@@ -18,9 +20,14 @@ use App\Http\Controllers\backend\VisitorController;
 |
 */
 
-Route::get('/', function () {
-    return view('home_landing_page');
-});
+//Route::get('/', function () {
+//    return view('home_landing_page');
+//});
+
+Route::get('/',[FrontendController::class,'index']);
+Route::get('pre-visitor',[FrontendController::class,'preVisitor']);
+Route::get('visitor-registration',[FrontendController::class,'visitorRegistration']);
+
 
 Auth::routes();
 
@@ -58,7 +65,6 @@ Route::middleware('auth')->group(function () {
     Route::post('id_card_generate/update/{id}', [IDCardGenerateController::class, 'update']);
     Route::get('id_card_generate/destroy/{id}', [IDCardGenerateController::class, 'destroy']);
 
-
     // doctor list
     Route::get('doctor/index', [DoctorController::class, 'index']);
     Route::get('doctor/create', [DoctorController::class, 'create']);
@@ -66,4 +72,8 @@ Route::middleware('auth')->group(function () {
     Route::get('doctor/edit/{id}', [DoctorController::class, 'edit']);
     Route::post('doctor/update/{id}', [DoctorController::class, 'update']);
     Route::get('doctor/destroy/{id}', [DoctorController::class, 'destroy']);
+
+    // pre visitor registration and visit list
+    Route::get('pre_visitor_registration/index', [PreVisitorController::class, 'preVisitorRegistration']);
+    Route::get('pre_visitor_request_list/index', [PreVisitorController::class, 'preVisitorRequestList']);
 });
