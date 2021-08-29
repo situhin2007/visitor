@@ -20,7 +20,7 @@
     <body style="background-image: url('assets/frontend/img/background.jpg');">
 
         <!--navigation-->
-        <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top sticky-navigation">
+        <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top sticky-navigation" style="height:65px">
             {{-- <a class="navbar-brand mx-auto" href="index.html">
                 Union
             </a> --}}
@@ -53,7 +53,7 @@
         @yield('home_content')
 
         <!--footer / contact-->
-        <footer class="bg-light fixed-bottom" style="height:80px">
+        <footer class="bg-light fixed-bottom" style="height:65px">
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-muted text-center" style="margin-top: 25px">

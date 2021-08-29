@@ -52,7 +52,7 @@
 
       <!-- serachbox -->
       <div class="row">
-        <div class="col-12">
+        <div class="col-12 ">
           <div class="card">
             <div class="card-header text-center">
                 <h5>Search-Box</h5>
@@ -70,26 +70,26 @@
                           <option value="vendor">Vendor</option>
                       </select>
                   </div>
-                  <div class="col-2 pl-3">
+                  <div class="col-2 pl-3 md-4 sm-3">
                     <label>Name<span class="text-danger">*</span></label>
                     <input type="text" class="form-control" name="name" placeholder="Enter name">
                   </div>
-                  <div class="col-2">
+                  <div class="col-2 md-4 sm-3">
                     <label>Mobile<span class="text-danger">*</span></label>
                     <input type="text" class="form-control" name="name" placeholder="Enter Mobile">
                   </div>
-                  <div class="col-2">
+                  <div class="col-2 md-4 sm-3">
                     <label>Age<span class="text-danger">*</span></label>
                     <input type="number" class="form-control" name="name" placeholder="Age">
                   </div>
-                  <div class="col-md-2">
+                  <div class="col-md-2 md-4 sm-3">
                   <div class="form-group">
                   <label>Admission Date<span class="text-danger">*</span></label>
                   <input type="text" id="visited_date" class="form-control" name="visited_date" placeholder="Enter visited date">
                 </div>
                 </div>
 
-                <div class="col-md-2 pt-4">
+                <div class="col-md-2 pt-4 md-4 sm-3">
                 <button type="button" class="btn btn-outline-primary float-right">Search</button>
                   </div>
                     </div>
