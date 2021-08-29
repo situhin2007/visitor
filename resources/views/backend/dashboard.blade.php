@@ -50,40 +50,16 @@
         <!-- /.col -->
       </div>
 
-      <!-- Quick Access -->
+      <!-- serachbox -->
       <div class="row">
         <div class="col-12">
           <div class="card">
-            <div class="card-header">
-                <h5>Quick Access</h5>
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-8 btn-group">
-                        <a href="{{ url('patient/create') }}" class="btn btn-info"> Patient</a>
-                        <a href="{{ url('doctor/index')}}" class="btn btn-info ml-3"> Doctors</a>
-                        <a href=""class="btn btn-info ml-3"> Managment</a>
-                        <a href=""class="btn btn-info ml-3">Vendor</a>
-                    </div>
-                    <div class="col-4 sm-2">
-                        <a href="{{ url('visitor/index') }}"class="btn btn-success float-right">Visitor List</a>
-                    </div>
-                </div>
-            </div>
-          </div>
-          <!-- /.card -->
-        </div>
-      </div>
-      <!-- serachbox -->
-        <div class="row">
-        <div class="col-12">
-          <div class="card">
-            <div class="card-header">
+            <div class="card-header text-center">
                 <h5>Search-Box</h5>
             </div>
             <div class="card-body">
                 <div class="row">
-                    <div class="col-12 btn-group text-center">
+                    <div class="col-12 btn-group">
                     <div class="form-group">
                       <label>Reference Category<span class="text-danger">*</span></label>
                       <select class="form-control select2bs4" id="reference_category" name="reference_category">
@@ -108,7 +84,7 @@
                   </div>
                   <div class="col-md-2">
                   <div class="form-group">
-                  <label>Date<span class="text-danger">*</span></label>
+                  <label>Admission Date<span class="text-danger">*</span></label>
                   <input type="text" id="visited_date" class="form-control" name="visited_date" placeholder="Enter visited date">
                 </div>
                 </div>
