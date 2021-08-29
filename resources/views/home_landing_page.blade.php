@@ -27,7 +27,7 @@
 
             <a href="{{url('/')}}">
                 <div class="navbar-brand mx-auto">
-                    <img style="width: 170px" src="{{ asset('assets/frontend/logo/download.png') }}" alt="">
+                    <img style="width: 160px" src="{{ asset('assets/frontend/logo/download.png') }}" alt="">
                 </div>
             </a>
 
