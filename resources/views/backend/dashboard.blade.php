@@ -50,6 +50,7 @@
         <!-- /.col -->
       </div>
 
+      <!-- Quick Access -->
       <div class="row">
         <div class="col-12">
           <div class="card">
@@ -58,13 +59,13 @@
             </div>
             <div class="card-body">
                 <div class="row">
-                    <div class="col-8">
-                        <a href="{{ url('patient/index') }}" class="btn btn-info"> Patient</a>
-                        <a href="" class="btn btn-info ml-3"> Doctors</a>
+                    <div class="col-8 btn-group">
+                        <a href="{{ url('patient/create') }}" class="btn btn-info"> Patient</a>
+                        <a href="{{ url('doctor/index')}}" class="btn btn-info ml-3"> Doctors</a>
                         <a href=""class="btn btn-info ml-3"> Managment</a>
                         <a href=""class="btn btn-info ml-3">Vendor</a>
                     </div>
-                    <div class="col-4">
+                    <div class="col-4 sm-2">
                         <a href="{{ url('visitor/index') }}"class="btn btn-success float-right">Visitor List</a>
                     </div>
                 </div>
@@ -73,8 +74,69 @@
           <!-- /.card -->
         </div>
       </div>
+      <!-- serachbox -->
+        <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+                <h5>Search-Box</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12 btn-group text-center">
+                    <div class="form-group">
+                      <label>Reference Category<span class="text-danger">*</span></label>
+                      <select class="form-control select2bs4" id="reference_category" name="reference_category">
+                          <option value="">---Please Select----</option>
+                          <option value="patient">Patient</option>
+                          <option value="doctor">Doctor</option>
+                          <option value="management">Management</option>
+                          <option value="vendor">Vendor</option>
+                      </select>
+                  </div>
+                  <div class="col-2 pl-3">
+                    <label>Name<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" name="name" placeholder="Enter name">
+                  </div>
+                  <div class="col-2">
+                    <label>Mobile<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" name="name" placeholder="Enter Mobile">
+                  </div>
+                  <div class="col-2">
+                    <label>Age<span class="text-danger">*</span></label>
+                    <input type="number" class="form-control" name="name" placeholder="Age">
+                  </div>
+                  <div class="col-md-2">
+                  <div class="form-group">
+                  <label>Date<span class="text-danger">*</span></label>
+                  <input type="text" id="visited_date" class="form-control" name="visited_date" placeholder="Enter visited date">
+                </div>
+                </div>
 
+                <div class="col-md-2 pt-4">
+                <button type="button" class="btn btn-outline-primary float-right">Search</button>
+                  </div>
+                    </div>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+          <!-- /.card -->
+        </div>
+      </div>
       <!-- /.row -->
     </div><!--/. container-fluid -->
   </section>
 @endsection
+
+<script>
+        $(function () {
+            $("#visited_date").datepicker({
+                dateFormat:'Y-m-d',
+                startDate: new Date()
+            });
+        });
+
+</script>

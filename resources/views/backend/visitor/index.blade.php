@@ -27,31 +27,31 @@
               <table id="visitor" class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                  <th>Sl No</th>
-                  <th>Name</th>
-                  <th>Mobile</th>
-                  <th>Reference ID</th>
-                  <th>Reference Category</th>
-                  <th>Reference Name</th>
-                  <th>Date</th>
-                  <th>Check In</th>
-                  <th>Check Out</th>
-                  <th>Action</th>
+                  <th class="text-center">Sl No</th>
+                  <th class="text-center">Name</th>
+                  <th class="text-center">Mobile</th>
+                  <th class="text-center">Reference ID</th>
+                  <th class="text-center">Reference Category</th>
+                  <th class="text-center">Reference Name</th>
+                  <th class="text-center">Date</th>
+                  <th class="text-center">Check In</th>
+                  <th class="text-center">Check Out</th>
+                  <th class="text-center">Action</th>
                 </tr>
                 </thead>
                 <tbody>
                     @foreach ($all_visitors as $all_visitor_value)
                         <tr>
-                            <td>{{ $loop->iteration }}</td>
-                            <td>{{ $all_visitor_value->name }}</td>
-                            <td>{{ $all_visitor_value->mobile }}</td>
-                            <td>{{ $all_visitor_value->reference_id }}</td>
-                            <td>{{ $all_visitor_value->reference_category }}</td>
-                            <td>{{ $all_visitor_value->visited_ref_name }}</td>
-                            <td>{{ $all_visitor_value->visited_date }}</td>
-                            <td>{{ $all_visitor_value->check_in }}</td>
-                            <td>{{ $all_visitor_value->check_out }}</td>
-                            <td>
+                            <td class="text-center">{{ $loop->iteration }}</td>
+                            <td class="text-center">{{ $all_visitor_value->name }}</td>
+                            <td class="text-center">{{ $all_visitor_value->mobile }}</td>
+                            <td class="text-center">{{ $all_visitor_value->reference_id }}</td>
+                            <td class="text-center">{{ $all_visitor_value->reference_category }}</td>
+                            <td class="text-center">{{ $all_visitor_value->visited_ref_name }}</td>
+                            <td class="text-center">{{ $all_visitor_value->visited_date }}</td>
+                            <td class="text-center">{{ $all_visitor_value->check_in }}</td>
+                            <td class="text-center">{{ $all_visitor_value->check_out }}</td>
+                            <td class="text-center">
                                 <a href="{{url('visitor/edit',$all_visitor_value->id)}}" class="btn btn-info btn-sm"> <i class="fa fa-edit"></i> </a>
 {{--                                <a href="#" class="btn btn-danger btn-sm"> <i class="fa fa-trash-alt"></i> </a>--}}
                             </td>

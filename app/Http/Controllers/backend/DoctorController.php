@@ -81,4 +81,5 @@ class DoctorController extends Controller
             return back()->with('error', 'Something Error Found, Please try again');
         }
     }
+    
 }

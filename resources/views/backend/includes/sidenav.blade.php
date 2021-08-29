@@ -33,7 +33,7 @@
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar text-sm flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
+                with font-awesome or any other icon font library -->
           <li class="nav-item">
             <a class="nav-link {{ request()->is('dashboard') ? 'active' :''}}" href="{{ route('dashboard') }}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -45,7 +45,7 @@
 
           <li class="nav-item  {{ request()->is('visitor/*') ? ' menu-open' :''}}">
             <a href="#" class="nav-link {{ request()->is('visitor/*') ? 'active' :''}}">
-              <i class="nav-icon fas fa-list text-green"></i>
+              <i class="nav-icon fas fa-users text-green"></i>
               <p>
                 Visitor
                 <i class="fas fa-angle-left right"></i>
@@ -93,7 +93,8 @@
 
           <li class="nav-item {{ request()->is('doctor/*') ? ' menu-open' :''}}">
             <a href="javascript:void(0)" class="nav-link {{ request()->is('doctor/*') ? 'active' :''}}">
-              <i class="nav-icon fas fa-table text-green"></i>
+              <!-- <i class="nav-icon fas fa-table text-green"></i> -->
+              <i class="fa fa-user-md text-green fa-2x"></i>
               <p>
                 Doctor
                 <i class="fas fa-angle-left right"></i>
@@ -167,7 +168,7 @@
                 <a href="{{url('pre_visitor_registration/index')}}" class="nav-link {{ request()->is('pre_visitor_registration/index') ? 'active' :''}}">
                     <i class="nav-icon fas fa-users text-green"></i>
                     <p>
-                        Pre Visitor Registration
+                        Pre Visitor Request
                     </p>
                 </a>
             </li>
@@ -176,7 +177,7 @@
                 <a href="{{url('pre_visitor_request_list/index')}}" class="nav-link {{ request()->is('pre_visitor_request_list/index') ? 'active' :''}}">
                     <i class="nav-icon fas fa-users text-blue"></i>
                     <p>
-                        Pre Visitor Request List
+                        New Visitor Request 
                     </p>
                 </a>
             </li>
