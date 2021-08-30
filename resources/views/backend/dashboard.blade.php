@@ -1,113 +1,212 @@
 @extends('backend.master')
 
-@section('content')
-<section class="content">
-    <div class="container-fluid">
-      <!-- Info boxes -->
-      <div class="row">
-        <div class="col-12 col-sm-6 col-md-4">
-          <div class="info-box">
-            <span class="info-box-icon bg-info elevation-1"><i class="fas fa-users"></i></span>
 
-            <div class="info-box-content">
-              <span class="info-box-text"> <a href="{{url('visitor/index')}}"> Total Visitor </a> </span>
-              <span class="info-box-number">
-                {{ $total_visitor }}
-              </span>
-            </div>
-            <!-- /.info-box-content -->
-          </div>
-          <!-- /.info-box -->
-        </div>
-        <!-- fix for small devices only -->
-        <div class="clearfix hidden-md-up"></div>
+@section('css')
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.min.css" rel="stylesheet"/>
 
-        <div class="col-12 col-sm-6 col-md-4">
-          <div class="info-box mb-3">
-            <span class="info-box-icon bg-success elevation-1"><i class="fas fa-id-card"></i></span>
+    <link rel="stylesheet" href="{{ asset('assets/backends/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/backends/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/backends/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
 
-            <div class="info-box-content">
-              <span class="info-box-text">Total Remaining ID</span>
-              <span class="info-box-number">60</span>
-            </div>
-            <!-- /.info-box-content -->
-          </div>
-          <!-- /.info-box -->
-        </div>
-        <!-- /.col -->
-        <div class="col-12 col-sm-6 col-md-4">
-          <div class="info-box mb-3">
-            <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-id-card"></i></span>
-
-            <div class="info-box-content">
-              <span class="info-box-text">Total ID Given</span>
-              <span class="info-box-number">340</span>
-            </div>
-            <!-- /.info-box-content -->
-          </div>
-          <!-- /.info-box -->
-        </div>
-        <!-- /.col -->
-      </div>
-
-      <!-- serachbox -->
-      <div class="row">
-        <div class="col-12 ">
-          <div class="card">
-            <div class="card-header text-center">
-                <h5>Search-Box</h5>
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-12 btn-group">
-                    <div class="form-group">
-                      <label>Reference Category<span class="text-danger">*</span></label>
-                      <select class="form-control select2bs4" id="reference_category" name="reference_category">
-                          <option value="">---Please Select----</option>
-                          <option value="patient">Patient</option>
-                          <option value="doctor">Doctor</option>
-                          <option value="management">Management</option>
-                          <option value="vendor">Vendor</option>
-                      </select>
-                  </div>
-                  <div class="col-2 pl-3 md-4 sm-3">
-                    <label>Name<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" name="name" placeholder="Enter name">
-                  </div>
-                  <div class="col-2 md-4 sm-3">
-                    <label>Mobile<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" name="name" placeholder="Enter Mobile">
-                  </div>
-                  <div class="col-2 md-4 sm-3">
-                    <label>Age<span class="text-danger">*</span></label>
-                    <input type="number" class="form-control" name="name" placeholder="Age">
-                  </div>
-                  <div class="col-md-2 md-4 sm-3">
-                  <div class="form-group">
-                  <label>Admission Date<span class="text-danger">*</span></label>
-                  <input type="text" id="visited_date" class="form-control" name="visited_date" placeholder="Enter visited date">
-                </div>
-                </div>
-
-                <div class="col-md-2 pt-4 md-4 sm-3">
-                <button type="button" class="btn btn-outline-primary float-right">Search</button>
-                  </div>
-                    </div>
-                    </div>
-                    </div>
-                  </div>
-                </div>
-            </div>
-          </div>
-          <!-- /.card -->
-        </div>
-      </div>
-      <!-- /.row -->
-    </div><!--/. container-fluid -->
-  </section>
 @endsection
 
-<script>
+
+@section('content')
+
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header" style="background: #027ca0; color: white">
+                      <h3 class="card-title">Filter</h3>
+                    </div>
+                    <div class="card-body">
+                      <form role="form" action="" method="post">
+                          @csrf
+                        <div class="row">
+                          <div class="col-sm-5">
+                            <div class="form-group">
+                              <label>&nbsp;&nbsp; Name</label>
+                              <div class="col-md-12 col-sm-12">
+                                <select name="name" class="form-control select2bs4">
+                                    <option value="-1">select</option>
+                                    <option value="-1">select</option>
+                                    <option value="-1">select</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-sm-5">
+                            <div class="form-group">
+                              <label>&nbsp;&nbsp; Mobile</label>
+                              <div class="col-md-12 col-sm-12">
+                                <select name="name" class="form-control select2bs4">
+                                    <option value="-1">select</option>
+                                    <option value="-1">select</option>
+                                    <option value="-1">select</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-sm-2">
+                            <div class="form-group">
+                              <label>&nbsp;&nbsp; Age</label>
+                              <div class="col-md-12 col-sm-12">
+                                <input type="text" class="form-control" name="age">
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <label>&nbsp;&nbsp; Admission From Date</label>
+                              <div class="col-md-12 col-sm-12">
+                                <input type="date" class="form-control" name="age">
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <label>&nbsp;&nbsp; Admission To Date</label>
+                              <div class="col-md-12 col-sm-12">
+                                <input type="date" class="form-control" name="age">
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                      <button type="submit" id="generate" class="btn" style="background: #027ca0; color: white">Search</button>
+                    </div>
+                  </form>
+                  </div>
+
+
+                <div class="row">
+                    <!-- /.col-md-6 -->
+                    <div class="col-lg-12">
+                        <div class="card card-primary card-outline">
+                            <div class="card-header">
+                                <h5 class="card-title m-0">Patients Information</h5>
+                            </div>
+                            <div class="card-body">
+                                <table id="patientTable" class="table table-bordered table-hover">
+                                    <thead>
+                                    <tr>
+                                      <th class="text-center">Name</th>
+                                      <th class="text-center">Mobile</th>
+                                      <th class="text-center">Age</th>
+                                      <th class="text-center">Admission Date</th>
+                                      <th class="text-center">Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Test</td>
+                                            <td>018237478234</td>
+                                            <td>25</td>
+                                            <td>ss35353</td>
+                                            <td>
+                                                <a href="" class="btn btn-info">Get Pass</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header" style="background: #027ca0; color: white">
+                      <h3 class="card-title">Today's</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <!-- /.col-md-6 -->
+                            <div class="col-lg-12">
+                                <div class="card card-primary card-outline">
+                                    <div class="card-header">
+                                        <h5 class="card-title m-0">Issue</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <table id="issueCardTable" class="table table-bordered table-hover">
+                                            <thead>
+                                            <tr>
+                                              <th class="text-center">Name</th>
+                                              <th class="text-center">Mobile</th>
+                                              <th class="text-center">Ref.</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                <div class="row">
+                    <!-- /.col-md-6 -->
+                    <div class="col-lg-12">
+                        <div class="card card-primary card-outline">
+                            <div class="card-header">
+                                <h5 class="card-title m-0">Return</h5>
+                            </div>
+                            <div class="card-body">
+                                <table id="returnCardTable" class="table table-bordered table-hover">
+                                    <thead>
+                                    <tr>
+                                      <th class="text-center">Name</th>
+                                      <th class="text-center">Mobile</th>
+                                      <th class="text-center">Ref.</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+
+@endsection
+
+@section('js')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
+
+
+        <!-- DataTables  & Plugins -->
+        <script src="{{ asset('assets/backends/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+        <script src="{{ asset('assets/backends/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+        <script src="{{ asset('assets/backends/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
+        <script src="{{ asset('assets/backends/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
+        <script src="{{ asset('assets/backends/plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
+        <script src="{{ asset('assets/backends/plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
+        <script src="{{ asset('assets/backends/plugins/jszip/jszip.min.js') }}"></script>
+        <script src="{{ asset('assets/backends/plugins/pdfmake/pdfmake.min.js') }}"></script>
+        <script src="{{ asset('assets/backends/plugins/pdfmake/vfs_fonts.js') }}"></script>
+        <script src="{{ asset('assets/backends/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
+        <script src="{{ asset('assets/backends/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
+        <script src="{{ asset('assets/backends/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
+
+    <script>
+
         $(function () {
             $("#visited_date").datepicker({
                 dateFormat:'Y-m-d',
@@ -115,4 +214,34 @@
             });
         });
 
-</script>
+        //Initialize Select2 Elements
+        $('.select2').select2()
+        //Initialize Select2 Elements
+        $('.select2bs4').select2({
+            theme: 'bootstrap4'
+        })
+
+        $(function () {
+          $('#patientTable').DataTable({
+        //    scrollX:'true',
+        //    scrollY:'true'
+          });
+        });
+
+        $(function () {
+          $('#issueCardTable').DataTable({
+        //    scrollX:'true',
+        //    scrollY:'true'
+          });
+        });
+
+        $(function () {
+          $('#returnCardTable').DataTable({
+        //    scrollX:'true',
+        //    scrollY:'true'
+          });
+        });
+
+    </script>
+@endsection
+
