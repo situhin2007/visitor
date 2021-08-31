@@ -88,8 +88,8 @@
                 <div class="row">
                     <!-- /.col-md-6 -->
                     <div class="col-lg-12">
-                        <div class="card card-primary card-outline">
-                            <div class="card-header">
+                        <div class="card card-primary">
+                            <div class="card-header" style="background: #027ca0; color: white">
                                 <h5 class="card-title m-0">Patients Information</h5>
                             </div>
                             <div class="card-body">
@@ -176,8 +176,8 @@
                         <div class="row">
                             <!-- /.col-md-6 -->
                             <div class="col-lg-12">
-                                <div class="card card-primary card-outline">
-                                    <div class="card-header">
+                                <div class="card card-primary">
+                                    <div class="card-header" style="background: #027ca0; color: white">
                                         <h5 class="card-title m-0">Issued Get-Pass</h5>
                                     </div>
                                     <div class="card-body">
@@ -265,8 +265,8 @@
                 <div class="row">
                     <!-- /.col-md-6 -->
                     <div class="col-lg-12">
-                        <div class="card card-primary card-outline">
-                            <div class="card-header">
+                        <div class="card card-primary">
+                            <div class="card-header" style="background: #027ca0; color: white">
                                 <h5 class="card-title m-0">Returned Get-Pass</h5>
                             </div>
                             <div class="card-body">
