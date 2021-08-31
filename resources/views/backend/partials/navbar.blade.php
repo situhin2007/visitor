@@ -20,6 +20,7 @@
                     <li class="nav-item">
                         <a href="#" class="nav-link">Vendor</a>
                     </li>
+
                 </ul>
             </div>
         </div>
