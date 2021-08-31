@@ -1,4 +1,4 @@
-@extends('backend.master_old')
+@extends('backend.master')
 
 
 @section('css')

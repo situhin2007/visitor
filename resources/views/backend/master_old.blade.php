@@ -2,66 +2,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-    @include('backend.includes.css')
-
+    @include('backend.partials.css')
 </head>
-<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+<body class="hold-transition layout-top-nav">
 <div class="wrapper">
-  <!-- Navbar -->
-  @include('backend.includes.navbar')
-  <!-- /.navbar -->
 
-  <!-- Main Sidebar Container -->
- @include('backend.includes.sidenav')
+    @include('backend.partials.navbar')
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        {{-- <div class="row mb-2">
-          <div class="col-sm-6">
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+                        {{-- <h1> Bangladesh Institute of Health Sciences Hospital</h1> --}}
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
 
-              <?php $dt = new DateTime('now', new DateTimezone('Asia/Dhaka'))?>
-              <h1>{{$dt->format('F j, Y, g:i a')}}</h1>
-
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard </li>
-            </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row --> --}}
-      </div><!-- /.container-fluid -->
+        <!-- Main content -->
+        <div class="content">
+            <div class="container-fluid">
+                @yield('content')
+                <!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content -->
     </div>
-    <!-- /.content-header -->
+    <!-- /.content-wrapper -->
 
-    <!-- Main content -->
-  @yield('content')
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
-
-  <!-- Main Footer -->
-  <footer class="main-footer">
-    <strong>Copyright &copy; 2021-2022 <a href="#">BIHS</a>.</strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 1.0.0
-    </div>
-  </footer>
+    <!-- Main Footer -->
+    <footer class="main-footer">
+        <div class="text-center"><strong>Copyright &copy; {{date('Y')}} <a href="javascript:void(0)">BIHS</a>.</strong> All rights reserved.</div>
+    </footer>
 </div>
 <!-- ./wrapper -->
 
-    @include('backend.includes.js')
+<!-- REQUIRED SCRIPTS -->
+@include('backend.partials.js')
 
 </body>
 </html>
+

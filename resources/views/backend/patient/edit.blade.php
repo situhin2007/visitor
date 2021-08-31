@@ -74,6 +74,26 @@
                 </div>
               </div>
 
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Age <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control  @error('age') is-invalid @enderror" name="age" value="{{$patient->age}}" placeholder="Enter age">
+                    @if($errors->has('age'))
+                        <span class="text-danger">{{ $errors->first('age') }}</span>
+                    @endif
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Admission Date <span class="text-danger">*</span></label>
+                  <input type="date" class="form-control  @error('admission_date') is-invalid @enderror" name="admission_date" value="{{$patient->admission_date}}" placeholder="Enter admission date">
+                    @if($errors->has('admission_date'))
+                        <span class="text-danger">{{ $errors->first('admission_date') }}</span>
+                    @endif
+                </div>
+              </div>
+
           </div>
         </div>
         <!-- /.card-body -->

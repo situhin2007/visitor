@@ -2,54 +2,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    @include('backend.partials.css')
+
+    @include('backend.includes.css')
+
 </head>
-<body class="hold-transition layout-top-nav">
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
+  <!-- Navbar -->
+  @include('backend.includes.navbar')
+  <!-- /.navbar -->
 
-    @include('backend.partials.navbar')
+  <!-- Main Sidebar Container -->
+ @include('backend.includes.sidenav')
 
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <div class="content-header">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-sm-12">
-                        {{-- <h1> Bangladesh Institute of Health Sciences Hospital</h1> --}}
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
-        </div>
-        <!-- /.content-header -->
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        {{-- <div class="row mb-2">
+          <div class="col-sm-6">
 
-        <!-- Main content -->
-        <div class="content">
-            <div class="container-fluid">
-                @yield('content')
-                <!-- /.row -->
-            </div><!-- /.container-fluid -->
-        </div>
-        <!-- /.content -->
+              <?php $dt = new DateTime('now', new DateTimezone('Asia/Dhaka'))?>
+              <h1>{{$dt->format('F j, Y, g:i a')}}</h1>
+
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Dashboard </li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row --> --}}
+      </div><!-- /.container-fluid -->
     </div>
-    <!-- /.content-wrapper -->
+    <!-- /.content-header -->
 
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-        <!-- Control sidebar content goes here -->
-    </aside>
-    <!-- /.control-sidebar -->
+    <!-- Main content -->
+  @yield('content')
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
 
-    <!-- Main Footer -->
-    <footer class="main-footer">
-        <div class="text-center"><strong>Copyright &copy; {{date('Y')}} <a href="javascript:void(0)">BIHS</a>.</strong> All rights reserved.</div>
-    </footer>
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <strong>Copyright &copy; 2021-2022 <a href="#">BIHS</a>.</strong>
+    All rights reserved.
+    <div class="float-right d-none d-sm-inline-block">
+      <b>Version</b> 1.0.0
+    </div>
+  </footer>
 </div>
 <!-- ./wrapper -->
 
-<!-- REQUIRED SCRIPTS -->
-@include('backend.partials.js')
+    @include('backend.includes.js')
 
 </body>
 </html>
-

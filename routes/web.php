@@ -55,7 +55,8 @@ Route::middleware('auth')->group(function () {
     Route::get('patient/edit/{id}', [PatientController::class, 'edit']);
     Route::post('patient/update/{id}', [PatientController::class, 'update']);
     Route::get('patient/destroy/{id}', [PatientController::class, 'destroy']);
-
+    Route::get('patient-data-show-filter', [PatientController::class, 'patientDataShowFilter']);
+    Route::get('get-pass-patient', [PatientController::class, 'getPassPatient']);
 
     //id card generate routes
     Route::get('id_card_generate/index', [IDCardGenerateController::class, 'index']);

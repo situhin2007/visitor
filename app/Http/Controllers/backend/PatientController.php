@@ -5,6 +5,7 @@ namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 use App\Models\Patient;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PatientController extends Controller
 {
@@ -27,6 +28,8 @@ class PatientController extends Controller
             'ward_no' => 'required',
             'cabin_no' => 'required|unique:ipd_admitted_patients',
             'seat_no' => 'required',
+            'age' => 'required',
+            'admission_date' => 'required',
         ]);
 
         $patients = new Patient();
@@ -35,7 +38,9 @@ class PatientController extends Controller
         $patients->ward_no = $request->ward_no;
         $patients->cabin_no = $request->cabin_no;
         $patients->seat_no = $request->seat_no;
-        $patients->reference_no = rand(1000,9999); 
+        $patients->reference_no = rand(1000,9999);
+        $patients->age = $request->age;
+        $patients->admission_date = $request->admission_date;
 
         if ($patients->save()) {
             return redirect('patient/index')->with('success', 'Patient successfully updated.');
@@ -58,6 +63,8 @@ class PatientController extends Controller
             'ward_no' => 'required',
             'cabin_no' => 'required',
             'seat_no' => 'required',
+            'age' => 'required',
+            'admission_date' => 'required',
         ]);
 
         $patients = Patient::findOrFail($id);
@@ -67,6 +74,8 @@ class PatientController extends Controller
         $patients->cabin_no = $request->cabin_no;
         $patients->seat_no = $request->seat_no;
         $patients->reference_no = rand(1000,9999);
+        $patients->age = $request->age;
+        $patients->admission_date = $request->admission_date;
 
         if ($patients->save()) {
             return redirect('patient/index')->with('success', 'Patient successfully updated.');
@@ -84,5 +93,26 @@ class PatientController extends Controller
         } else {
             return back()->with('error', 'Something Error Found, Please try again');
         }
+    }
+
+    public function patientDataShowFilter(Request $request)
+    {
+        $from_admission_date = date('Y-m-d', strtotime($request->from_admission_date));
+        $to_admission_date = date('Y-m-d', strtotime($request->to_admission_date));
+
+        // SELECT * FROM `ipd_admitted_patients` WHERE `admission_date` = '2021-09-02'
+
+        // $patient_data =  DB::select("SELECT * FROM `ipd_admitted_patients`
+        //         WHERE admission_date BETWEEN '".$from_admission_date."' AND '".$to_admission_date." ");
+
+        $patient_data =  DB::select("SELECT * FROM `ipd_admitted_patients` WHERE (`admission_date` BETWEEN '".$from_admission_date."' AND '".$to_admission_date."') ");
+
+        return $patient_data;
+    }
+
+    public function getPassPatient()
+    {
+        // $patientDetails = Patient::findOrFail($id);
+        return view('backend.patient.getPass');
     }
 }
