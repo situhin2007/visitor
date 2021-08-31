@@ -23,7 +23,7 @@
                       <form role="form" action="" method="post">
                           @csrf
                         <div class="row">
-                          <div class="col-sm-5">
+                          <div class="col-sm-4">
                             <div class="form-group">
                               <label>&nbsp;&nbsp; Name</label>
                               <div class="col-md-12 col-sm-12">
@@ -36,7 +36,7 @@
                             </div>
                           </div>
 
-                          <div class="col-sm-5">
+                          <div class="col-sm-4">
                             <div class="form-group">
                               <label>&nbsp;&nbsp; Mobile</label>
                               <div class="col-md-12 col-sm-12">
@@ -51,13 +51,20 @@
 
                           <div class="col-sm-2">
                             <div class="form-group">
-                              <label>&nbsp;&nbsp; Age</label>
+                              <label>&nbsp;&nbsp; Age-From</label>
                               <div class="col-md-12 col-sm-12">
                                 <input type="number" class="form-control" name="age">
                               </div>
                             </div>
                           </div>
-
+                            <div class="col-sm-2">
+                            <div class="form-group">
+                              <label>&nbsp;&nbsp; Age-To</label>
+                              <div class="col-md-12 col-sm-12">
+                                <input type="number" class="form-control" name="age">
+                              </div>
+                            </div>
+                          </div>
                           <div class="col-sm-6">
                             <div class="form-group">
                               <label>&nbsp;&nbsp; Admission From Date</label>
@@ -112,7 +119,7 @@
                                             <td>35</td>
                                             <td>26-08-2021</td>
                                             <td>
-                                            <a href="" class="btn btn-info">Get Pass</a>
+                                            <a href="" class="btn btn-info btn-sm">Get Pass</a>
                                             </td>
                                         </tr>
 
@@ -123,7 +130,7 @@
                                             <td>22</td>
                                             <td>27-08-2021</td>
                                             <td>
-                                            <a href="" class="btn btn-info">Get Pass</a>
+                                            <a href="" class="btn btn-info btn-sm">Get Pass</a>
                                             </td>
                                         </tr>
 
@@ -134,7 +141,7 @@
                                             <td>70</td>
                                             <td>28-08-2021</td>
                                             <td>
-                                            <a href="" class="btn btn-info">Get Pass</a>
+                                            <a href="" class="btn btn-info btn-sm">Get Pass</a>
                                             </td>
                                         </tr>
 
@@ -145,7 +152,7 @@
                                             <td>65</td>
                                             <td>29-08-2021</td>
                                             <td>
-                                            <a href="" class="btn btn-info">Get Pass</a>
+                                            <a href="" class="btn btn-info btn-sm">Get Pass</a>
                                             </td>
                                         </tr>
 
@@ -156,7 +163,7 @@
                                             <td>54</td>
                                             <td>30-08-2021</td>
                                             <td>
-                                            <a href="" class="btn btn-info">Get Pass</a>
+                                            <a href="" class="btn btn-info btn-sm">Get Pass</a>
                                             </td>
                                         </tr>
                                     </tbody>

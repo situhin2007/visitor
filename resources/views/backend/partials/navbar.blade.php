@@ -3,9 +3,9 @@
 
     <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
         <div class="container">
-            <a href="{{url('/')}}" class="navbar-brand">
+            <!-- <a href="{{url('/')}}" class="navbar-brand">
                 <img src="{{asset('assets/frontend/logo/download.png')}}" alt="logo" class="brand-image" style="opacity: .8">
-            </a>
+            </a> -->
 
             <div class="collapse navbar-collapse order-3" id="navbarCollapse">
                 <!-- Left navbar links -->
