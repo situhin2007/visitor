@@ -267,7 +267,7 @@
                     <div class="col-lg-12">
                         <div class="card card-primary card-outline">
                             <div class="card-header">
-                                <h5 class="card-title m-0">Return Get-Pass</h5>
+                                <h5 class="card-title m-0">Returned Get-Pass</h5>
                             </div>
                             <div class="card-body">
                                 <table id="returnCardTable" class="table table-bordered table-hover">
