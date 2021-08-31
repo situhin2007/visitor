@@ -130,7 +130,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Description<span class="text-danger">*</span></label>
-                                                <textarea name="" class="form-control" id="" cols=5 rows="5" placeholder="Whats your business, Please described it here."></textarea>
+                                                <textarea name="" class="form-control" id="" cols=5 rows="5" placeholder="Whats your business here?/ Whom do you want to meet?/ Please describe specific detail's here."></textarea>
                                             </div>
                                         </div>
 
