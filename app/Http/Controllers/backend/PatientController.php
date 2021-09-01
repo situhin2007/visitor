@@ -100,14 +100,18 @@ class PatientController extends Controller
         $from_admission_date = date('Y-m-d', strtotime($request->from_admission_date));
         $to_admission_date = date('Y-m-d', strtotime($request->to_admission_date));
 
-        // SELECT * FROM `ipd_admitted_patients` WHERE `admission_date` = '2021-09-02'
+        $from_age = $request->from_age;
+        $to_age = $request->to_age;
 
-        // $patient_data =  DB::select("SELECT * FROM `ipd_admitted_patients`
-        //         WHERE admission_date BETWEEN '".$from_admission_date."' AND '".$to_admission_date." ");
+        $patient_name = $request->patient_name;
+        $patient_mobile = $request->patient_mobile;
 
-        $patient_data =  DB::select("SELECT * FROM `ipd_admitted_patients` WHERE (`admission_date` BETWEEN '".$from_admission_date."' AND '".$to_admission_date."') ");
+
+        $patient_data =  DB::select("SELECT * FROM `ipd_admitted_patients`
+                                        WHERE (`admission_date` BETWEEN '".$from_admission_date."' AND '".$to_admission_date."') OR (`age` BETWEEN '".$from_age."' AND '".$to_age."') OR (`name` = '".$patient_name."') OR (`mobile` = '".$patient_mobile."') ");
 
         return $patient_data;
+
     }
 
     public function getPassPatient()

@@ -93,8 +93,7 @@
 
           <li class="nav-item {{ request()->is('doctor/*') ? ' menu-open' :''}}">
             <a href="javascript:void(0)" class="nav-link {{ request()->is('doctor/*') ? 'active' :''}}">
-              <!-- <i class="nav-icon fas fa-table text-green"></i> -->
-              <i class="fa fa-user-md text-green fa-2x"></i>
+              <i class="nav-icon fa fa-user-md text-green"></i>
               <p>
                 Doctor
                 <i class="fas fa-angle-left right"></i>
@@ -177,7 +176,7 @@
                 <a href="{{url('pre_visitor_request_list/index')}}" class="nav-link {{ request()->is('pre_visitor_request_list/index') ? 'active' :''}}">
                     <i class="nav-icon fas fa-users text-blue"></i>
                     <p>
-                        New Visitor Request 
+                        New Visitor Request
                     </p>
                 </a>
             </li>

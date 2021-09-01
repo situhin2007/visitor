@@ -109,6 +109,7 @@
                                     <tr>
                                       <th class="text-center">Sl No.</th>
                                       <th class="text-center">Name</th>
+                                      <th class="text-center">Mobile</th>
                                       <th class="text-center">Ref-No</th>
                                       <th class="text-center">Age</th>
                                       <th class="text-center">Admission Date</th>
@@ -364,7 +365,7 @@
                 if (data) {
                     var i = 1;
                     $.each(data,function(index,element){
-                        $("#patientTable").append("<tr class='text-center'><td>" + i++ + "</td class='text-center'><td>" + element.name + "</td class='text-center'><td>" + element.reference_no + "</td class='text-center'><td>" + element.age + "</td class='text-center'><td>" + element.admission_date + "</td class='text-center'><td>" + "<a href='{{ url('get-pass-patient/') }}' class='btn btn-info'>Get Pass</a>" + "</td></tr>")
+                        $("#patientTable").append("<tr class='text-center'><td>" + i++ + "</td class='text-center'><td>" + element.name + "</td class='text-center'><td>" + element.mobile + "</td class='text-center'><td>" + element.reference_no + "</td class='text-center'><td>" + element.age + "</td class='text-center'><td>" + element.admission_date + "</td class='text-center'><td>" + "<a href='{{ url('get-pass-patient/') }}' class='btn btn-info'>Get Pass</a>" + "</td></tr>")
                     })
                 }
             }
