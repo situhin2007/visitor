@@ -114,9 +114,10 @@ class PatientController extends Controller
 
     }
 
-    public function getPassPatient()
+    public function getPassPatient(Request $request)
     {
-        // $patientDetails = Patient::findOrFail($id);
-        return view('backend.patient.getPass');
+        $patientDetails = Patient::findOrFail($request->id);
+        return $patientDetails;
+        // return view('backend.patient.getPass');
     }
 }
