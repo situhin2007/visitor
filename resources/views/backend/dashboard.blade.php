@@ -22,7 +22,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header" style="background: #027ca0; color: white">
-                                <h3 class="card-title">Filter</h3>
+                                <h3 class="card-title text-sm">Filter</h3>
                             </div>
                             <div class="card-body">
                                 <form role="form" action="" method="post">
@@ -30,10 +30,10 @@
                                     <div class="row">
                                         <div class="col-sm-4">
                                             <div class="form-group">
-                                                <label>&nbsp;&nbsp; Name</label>
+                                                <label class="text-sm">&nbsp;&nbsp; Name</label>
                                                 <div class="col-md-12 col-sm-12">
                                                     <select name="patient_name" id="patient_name"
-                                                        class="form-control select2bs4">
+                                                        class="form-control text-sm select2bs4">
                                                         <option>Select</option>
                                                         @foreach ($patients as $patientsName)
                                                             <option value="{{ $patientsName->name }}">
@@ -46,10 +46,10 @@
 
                                         <div class="col-sm-4">
                                             <div class="form-group">
-                                                <label>&nbsp;&nbsp; Mobile</label>
+                                                <label class="text-sm">&nbsp;&nbsp; Mobile</label>
                                                 <div class="col-md-12 col-sm-12">
                                                     <select name="patient_mobile" id="patient_mobile"
-                                                        class="form-control select2bs4">
+                                                        class="form-control text-sm select2bs4">
                                                         <option>Select</option>
                                                         @foreach ($patients as $patientsMobile)
                                                             <option value="{{ $patientsMobile->mobile }}">
@@ -62,26 +62,26 @@
 
                                         <div class="col-sm-2">
                                             <div class="form-group">
-                                                <label>&nbsp;&nbsp; Age-From</label>
+                                                <label class="text-sm">&nbsp;&nbsp; Age-From</label>
                                                 <div class="col-md-12 col-sm-12">
-                                                    <input type="number" id="from_age" class="form-control"
+                                                    <input type="number" id="from_age" class="form-control text-sm"
                                                         name="from_age">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-sm-2">
                                             <div class="form-group">
-                                                <label>&nbsp;&nbsp; Age-To</label>
+                                                <label class="text-sm">&nbsp;&nbsp; Age-To</label>
                                                 <div class="col-md-12 col-sm-12">
-                                                    <input type="number" id="to_age" class="form-control" name="to_age">
+                                                    <input type="number" id="to_age" class="form-control text-sm" name="to_age">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <label>&nbsp;&nbsp; Admission From Date</label>
+                                                <label class="text-sm">&nbsp;&nbsp; Admission From Date</label>
                                                 <div class="col-md-12 col-sm-12">
-                                                    <input type="date" id="from_admission_date" class="form-control"
+                                                    <input type="date" id="from_admission_date" class="form-control text-sm"
                                                         name="from_admission_date">
                                                 </div>
                                             </div>
@@ -89,9 +89,9 @@
 
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <label>&nbsp;&nbsp; Admission To Date</label>
+                                                <label class="text-sm">&nbsp;&nbsp; Admission To Date</label>
                                                 <div class="col-md-12 col-sm-12">
-                                                    <input type="date" class="form-control" id="to_admission_date"
+                                                    <input type="date" class="form-control text-sm" id="to_admission_date"
                                                         name="to_admission_date">
                                                 </div>
                                             </div>
@@ -100,7 +100,7 @@
                                     </div>
                             </div>
                             <div class="card-footer">
-                                <button type="submit" id="generate" class="btn"
+                                <button type="submit" id="generate" class="btn text-sm"
                                     style="background: #027ca0; color: white">Search</button>
                             </div>
                             </form>
@@ -112,19 +112,19 @@
                             <div class="col-lg-12">
                                 <div class="card card-primary">
                                     <div class="card-header" style="background: #027ca0; color: white">
-                                        <h5 class="card-title m-0">Patients Information</h5>
+                                        <h5 class="card-title m-0 text-sm">Patients Information</h5>
                                     </div>
                                     <div class="card-body">
                                         <table id="patientTable" class="table table-bordered table-hover">
                                             <thead>
                                                 <tr>
-                                                    <th class="text-center">Sl No.</th>
-                                                    <th class="text-center">Name</th>
-                                                    <th class="text-center">Mobile</th>
-                                                    <th class="text-center">Ref-No</th>
-                                                    <th class="text-center">Age</th>
-                                                    <th class="text-center">Admission Date</th>
-                                                    <th class="text-center">Action</th>
+                                                    <th class="text-center text-sm">Sl No.</th>
+                                                    <th class="text-center text-sm">Name</th>
+                                                    <th class="text-center text-sm">Mobile</th>
+                                                    <th class="text-center text-sm">Ref-No</th>
+                                                    <th class="text-center text-sm">Age</th>
+                                                    <th class="text-center text-sm">Admission Date</th>
+                                                    <th class="text-center text-sm">Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -141,135 +141,96 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header" style="background: #027ca0; color: white">
-                            <h3 class="card-title">Today's</h3>
+                            <h3 class="card-title text-sm">Issued Get-Pass(Today's)</h3>
                         </div>
+
+                        @include('backend.includes.message')
+
                         <div class="card-body">
-                            <div class="row">
-                                <!-- /.col-md-6 -->
-                                <div class="col-lg-12">
-                                    <div class="card card-primary">
-                                        <div class="card-header" style="background: #027ca0; color: white">
-                                            <h5 class="card-title m-0">Issued Get-Pass</h5>
-                                        </div>
-                                        <div class="card-body">
-                                            <table id="issueCardTable" class="table table-bordered table-hover">
-                                                <thead>
-                                                    <tr>
-                                                        <th class="text-center">Sl.</th>
-                                                        <th class="text-center">Category</th>
-                                                        <th class="text-center">Name</th>
-                                                        <th class="text-center">Mobile</th>
-                                                        <th class="text-center">Ref-No.</th>
-                                                        <th class="text-center">Check-In</th>
-                                                        <th class="text-center">Check-Out</th>
+                            <table id="issueCardTable" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr class="text-sm">
+                                        <th>Sl No</th>
+                                        <th>Category</th>
+                                        <th>Name</th>
+                                        <th>Mobile</th>
+                                        <th>Visited Date</th>
+                                        <th>Check-In</th>
+                                        <th>Check-Out</th>
+                                        <th> ID Card No</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($getPassIssueData as $getPassData)
+                                        <tr class="text-sm">
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $getPassData->category }}</td>
+                                            <td>{{ $getPassData->visitor_name }}</td>
+                                            <td>{{ $getPassData->visitor_mobile }}</td>
+                                            <td>{{ $getPassData->visited_date }}</td>
+                                            <td>{{ $getPassData->check_in }}</td>
+                                            <td>{{ $getPassData->check_out }}</td>
+                                            <td>{{ $getPassData->card_no }}</td>
+                                            <td>
+                                                @if ($getPassData->status == 0)
+                                                    <span class="badge badge-success">Active</span>
+                                                @else
 
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>01</td>
-                                                        <td>Patient</td>
-                                                        <td>Shakil</td>
-                                                        <td>0182546951</td>
-                                                        <td>5689</td>
-                                                        <td>09:00 AM</td>
-                                                        <td>11:00 AM</td>
+                                                @endif
+                                            </td>
 
-                                                    </tr>
-                                                    <tr>
-                                                        <td>02</td>
-                                                        <td>Patient</td>
-                                                        <td>Anik</td>
-                                                        <td>0195321011</td>
-                                                        <td>2254</td>
-                                                        <td>11:30 AM</td>
-                                                        <td>01:00 PM</td>
+                                            <td>
+                                                <a class="btn btn-info btn-sm" href="{{ route('getPassChangeStatus',$getPassData->id) }}">Change Status</a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                            <br>
 
-                                                    </tr>
-                                                    <tr>
-                                                        <td>03</td>
-                                                        <td>Doctor</td>
-                                                        <td>Razib</td>
-                                                        <td>01752452521</td>
-                                                        <td>2426</td>
-                                                        <td>09:30 AM</td>
-                                                        <td>11:00 AM</td>
-
-                                                    </tr>
-                                                    <tr>
-                                                        <td>04</td>
-                                                        <td>Patient</td>
-                                                        <td>Kalam</td>
-                                                        <td>01824224241</td>
-                                                        <td>5666</td>
-                                                        <td>10:00 AM</td>
-                                                        <td>12:00 PM</td>
-
-                                                    </tr>
-                                                    <tr>
-                                                        <td>05</td>
-                                                        <td>Management</td>
-                                                        <td>Alif</td>
-                                                        <td>01925445241</td>
-                                                        <td>2720</td>
-                                                        <td>10:30 AM</td>
-                                                        <td>01:00 PM</td>
-
-                                                    </tr>
-                                                    <tr>
-                                                        <td>06</td>
-                                                        <td>Vendor</td>
-                                                        <td>Shamim</td>
-                                                        <td>0172546251</td>
-                                                        <td>4945</td>
-                                                        <td>11:45 AM</td>
-                                                        <td>02:00 PM</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="card-header" style="background: #027ca0; color: white">
+                                <h3 class="card-title text-sm">Returned Get-Pass(Today's)</h3>
                             </div>
+                            <br>
 
+                            <table id="returnCardTable" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr class="text-sm">
+                                        <th>Sl No</th>
+                                        <th>Category</th>
+                                        <th>Name</th>
+                                        <th>Mobile</th>
+                                        <th>Visited Date</th>
+                                        <th>Check-In</th>
+                                        <th>Check-Out</th>
+                                        <th>ID Card No</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($getPassIssueDataVisited as $getPassDataVisited)
+                                        <tr class="text-sm">
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $getPassDataVisited->category }}</td>
+                                            <td>{{ $getPassDataVisited->visitor_name }}</td>
+                                            <td>{{ $getPassDataVisited->visitor_mobile }}</td>
+                                            <td>{{ $getPassDataVisited->visited_date }}</td>
+                                            <td>{{ $getPassDataVisited->check_in }}</td>
+                                            <td>{{ $getPassDataVisited->check_out }}</td>
+                                            <td>{{ $getPassDataVisited->card_no }}</td>
+                                            <td>
+                                                @if ($getPassDataVisited->status == 1)
+                                                    <span class="badge badge-danger">Already Visited</span>
+                                                @else
 
-                            <div class="row">
-                                <!-- /.col-md-6 -->
-                                <div class="col-lg-12">
-                                    <div class="card card-primary">
-                                        <div class="card-header" style="background: #027ca0; color: white">
-                                            <h5 class="card-title m-0">Returned Get-Pass</h5>
-                                        </div>
-                                        <div class="card-body">
-                                            <table id="returnCardTable" class="table table-bordered table-hover">
-                                                <thead>
-                                                    <tr>
-                                                        <th class="text-center">Sl.</th>
-                                                        <th class="text-center">Category</th>
-                                                        <th class="text-center">Name</th>
-                                                        <th class="text-center">Mobile</th>
-                                                        <th class="text-center">Ref-No.</th>
-                                                        <th class="text-center">Check-In</th>
-                                                        <th class="text-center">Check-Out</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>01</td>
-                                                        <td>Vendor</td>
-                                                        <td>Shamim</td>
-                                                        <td>0172546251</td>
-                                                        <td>4945</td>
-                                                        <td>11:45 AM</td>
-                                                        <td>02:00 PM</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
+                                                @endif
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -291,79 +252,99 @@
                                 <h3 class="card-title">Patient Info:</h3>
                             </div>
                         </div>
-                        <form method="POST" id="patientVisitorForm">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Name<span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" disabled id="patientName"
-                                                name="patientName" placeholder="Enter name">
-                                            <span class="text-danger"></span>
-                                        </div>
+                        {{-- <form id="patientVisitorForm"> --}}
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Name<span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" disabled id="c_name" name="c_name"
+                                            placeholder="Enter name">
+                                        <span class="text-danger"></span>
                                     </div>
+                                </div>
 
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Mobile<span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" disabled id="patientMobile"
-                                                name="patientMobile" placeholder="Enter mobile">
-                                            <span class="text-danger"></span>
-                                        </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Mobile<span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" disabled id="c_mobile" name="c_mobile"
+                                            placeholder="Enter mobile">
+                                        <span class="text-danger"></span>
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="card card-secondary m-3">
-                                <div class="card-header">
-                                    <h3 class="card-title">Visitor Info:</h3>
-                                </div>
+                        <div class="card card-secondary m-3">
+                            <div class="card-header">
+                                <h3 class="card-title">Visitor Info:</h3>
                             </div>
+                        </div>
 
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label>Name<span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" name="name" placeholder="Enter name">
-                                            @if ($errors->has('name'))
-                                                <span class="text-danger">{{ $errors->first('name') }}</span>
-                                            @endif
-                                        </div>
-                                    </div>
-
-
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label>Mobile<span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" name="mobile"
-                                                placeholder="Enter mobile">
-                                            @if ($errors->has('mobile'))
-                                                <span class="text-danger">{{ $errors->first('mobile') }}</span>
-                                            @endif
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label>Card<span class="text-danger">*</span></label>
-                                            <select name="card" id="" class="form-control">
-                                                <option value="">select</option>
-                                                <option value="">2345</option>
-                                            </select>
-                                            @if ($errors->has('card'))
-                                                <span class="text-danger">{{ $errors->first('card') }}</span>
-                                            @endif
-                                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <input type="hidden" class="form-control" name="category" id="category"
+                                            value="patient">
+                                        <label>Name<span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" name="visitor_name" id="visitor_name"
+                                            placeholder="Enter name">
+                                        @if ($errors->has('visitor_name'))
+                                            <span class="text-danger">{{ $errors->first('visitor_name') }}</span>
+                                        @endif
                                     </div>
                                 </div>
+
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Mobile<span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" name="visitor_mobile" id="visitor_mobile"
+                                            placeholder="Enter mobile">
+                                        @if ($errors->has('visitor_mobile'))
+                                            <span class="text-danger">{{ $errors->first('visitor_mobile') }}</span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Card<span class="text-danger">*</span></label>
+                                        <select name="card_no" id="card_no" class="form-control">
+                                            <option value="">select</option>
+                                            @foreach ($idCardInfo as $idCard)
+                                                <option value="{{ $idCard->id_card_no }}">{{ $idCard->id_card_no }}</option>
+                                            @endforeach
+                                        </select>
+                                        @if ($errors->has('card_no'))
+                                            <span class="text-danger">{{ $errors->first('card_no') }}</span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Check In<span class="text-danger">*</span></label>
+                                        <input type="time" class="form-control" name="check_in" id="check_in">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Check Out<span class="text-danger">*</span></label>
+                                        <input type="time" class="form-control" name="check_out" id="check_out">
+                                    </div>
+                                </div>
+
                             </div>
+                        </div>
                     </div>
                     <div class="modal-footer justify-content-between">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save changes</button>
+                        <button type="button" id="submitPatientButton" class="btn btn-primary">Save changes</button>
                     </div>
-                    </form>
+                    {{-- </form> --}}
                 </div>
                 <!-- /.modal-content -->
             </div>
@@ -395,14 +376,19 @@
     <script src="{{ asset('assets/backends/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
 
     <script>
-        $(document).ready(function() {
+        // const Toast = Swal.mixin({
+        //     toast: true,
+        //     position: 'top-end',
+        //     showConfirmButton: false,
+        //     timer: 3000
+        // });
 
+        $(document).ready(function() {
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
-
         });
 
         $(function() {
@@ -455,46 +441,67 @@
                 success: function(res) {
                     console.log(res);
                     $('.patientVisitorModal').modal('show');
-                    $('#patientName').val(res.name);
-                    $('#patientMobile').val(res.mobile);
+                    $('#c_name').val(res.name);
+                    $('#c_mobile').val(res.mobile);
                 }
             });
         }
 
         // update or store the data
-        $('#patientVisitorForm').submit(function(e) {
-            e.preventDefault();
-            var formData = new FormData(this);
+        $('#submitPatientButton').on("click", function() {
+
+            var c_name = $('#c_name').val();
+            var c_mobile = $('#c_mobile').val();
+
+            var visitor_name = $('#visitor_name').val();
+            var visitor_mobile = $('#visitor_mobile').val();
+            var card_no = $('#card_no').val();
+            var category = $('#category').val();
+
+            var check_in = $('#check_in').val();
+            var check_out = $('#check_out').val();
+
             $.ajax({
-                type: 'POST',
-                url: "",
-                data: formData,
-                cache: false,
-                contentType: false,
-                processData: false,
+                url: "{{ route('getPassDataStore') }}",
+                type: "GET",
+                dataType: "json",
+                data: {
+                    c_name: c_name,
+                    c_mobile: c_mobile,
+                    visitor_name: visitor_name,
+                    visitor_mobile: visitor_mobile,
+                    card_no: card_no,
+                    category: category,
+                    check_out: check_out,
+                    check_in: check_in
+                },
                 success: (data) => {
-                    if (data.created == 1) {
-                        Toast.fire({
-                            type: 'success',
-                            title: 'Brand Created Successfully'
-                        })
-                    } else {
-                        Toast.fire({
-                            type: 'success',
-                            title: 'Brand Updated Successfully'
-                        })
-                    }
-                    $("#brandModal").modal('hide');
-                    var oTable = $('#brand').dataTable();
-                    oTable.fnDraw(false);
-                    $("#btn-save").html('Submit');
-                    $("#btn-save").attr("disabled", false);
+                    console.log(data);
+                    alert('Visitor get pass successfully saved.');
+                    // Toast.fire({
+                    //     type: 'success',
+                    //     title: 'Visitor get pass successfully saved.'
+                    // })
+
+                    $('.patientVisitorModal').modal('hide');
+
+                    // var oTable = $('#brand').dataTable();
+                    // oTable.fnDraw(false);
+
+                    $('#c_name').val('');
+                    $('#c_mobile').val('');
+
+                    $('#visitor_name').val('');
+                    $('#visitor_mobile').val('');
+                    $('#card_no').val('');
+                    $('#category').val('');
                 },
                 error: function(data) {
-                    Toast.fire({
-                        type: 'success',
-                        title: 'Operation Failed'
-                    })
+                    alert('Operation Failed');
+                    // Toast.fire({
+                    //     type: 'success',
+                    //     title: 'Operation Failed'
+                    // })
                 }
             });
         });

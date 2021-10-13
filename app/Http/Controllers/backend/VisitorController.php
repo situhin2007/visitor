@@ -55,7 +55,7 @@ class VisitorController extends Controller
                 return back()->with('error', 'Something Error Found, Please try again');
             }
         }catch (\Exception $exception){
-            dd($exception);
+            // dd($exception);
         }
     }
 
@@ -88,7 +88,6 @@ class VisitorController extends Controller
             $visitors->visited_date         = date('Y-m-d', strtotime($request->visited_date));;
             $visitors->check_in             = $request->check_in;
             $visitors->check_out            = $request->check_out;
-            $visitors->save();
 
             if ($visitors->save()) {
                 return redirect('visitor/index')->with('success', 'Visitor successfully updated.');

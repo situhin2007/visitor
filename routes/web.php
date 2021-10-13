@@ -8,6 +8,7 @@ use App\Http\Controllers\backend\DoctorController;
 use App\Http\Controllers\backend\IDCardGenerateController;
 use App\Http\Controllers\backend\PatientController;
 use App\Http\Controllers\backend\VisitorController;
+use App\Http\Controllers\backend\VisitorGetPassController;
 
 /*
 |--------------------------------------------------------------------------
@@ -77,4 +78,12 @@ Route::middleware('auth')->group(function () {
     // pre visitor registration and visit list
     Route::get('pre_visitor_registration/index', [PreVisitorController::class, 'preVisitorRegistration']);
     Route::get('pre_visitor_request_list/index', [PreVisitorController::class, 'preVisitorRequestList']);
+
+    Route::post('pre_visitor_registration/store', [PreVisitorController::class, 'preVisitorRegistrationStore'])->name('preVisitorRegistrationStore');
+
+
+    // get pass routes
+    Route::get('getPassDataStore', [VisitorGetPassController::class, 'getPassDataStore'])->name('getPassDataStore');
+    Route::get('getPassChangeStatus/{id}', [VisitorGetPassController::class, 'getPassChangeStatus'])->name('getPassChangeStatus');
+
 });
