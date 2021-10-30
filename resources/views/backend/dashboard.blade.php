@@ -311,7 +311,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Card<span class="text-danger">*</span></label>
-                                        <select name="card_no" id="card_no" class="form-control">
+                                        <select name="card_no" id="card_no" class="form-control select2bs4">
                                             <option value="">select</option>
                                             @foreach ($idCardInfo as $idCard)
                                                 <option value="{{ $idCard->id_card_no }}">{{ $idCard->id_card_no }}</option>
@@ -382,6 +382,8 @@
         //     showConfirmButton: false,
         //     timer: 3000
         // });
+
+
 
         $(document).ready(function() {
             $.ajaxSetup({

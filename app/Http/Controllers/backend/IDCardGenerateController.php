@@ -11,7 +11,7 @@ class IDCardGenerateController extends Controller
     public function index()
     {
         $id_cards = IdCardGenerate::all();
-        return view('backend.id_card_info.index',compact('id_cards'));
+        return view('backend.id_card_info.all_id_card',compact('id_cards'));
     }
 
     public function create()
