@@ -34,6 +34,7 @@ class VisitorGetPassController extends Controller
         $getPass->check_out = $request->check_out;
         $getPass->check_in = $request->check_in;
         $getPass->visited_date = Carbon::now();
+        $getPass->issue_get_current_pc_user = get_current_user();
         $getPass->status = 0;
 
         if ($getPass->save()) {
@@ -46,7 +47,7 @@ class VisitorGetPassController extends Controller
 
     public function getPassChangeStatus($id)
     {
-        $changeStatus = DB::table('get_pass')->where('id', $id)->update(['status' => 1]);
+        $changeStatus = DB::table('get_pass')->where('id', $id)->update(['status' => 1, 'return_get_current_pc_user' => get_current_user()]);
 
         if ($changeStatus) {
             return back()->with('success', 'Status change successfully.');

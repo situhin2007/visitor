@@ -158,6 +158,7 @@
                                         <th>Check-In</th>
                                         <th>Check-Out</th>
                                         <th> ID Card No</th>
+                                        <th> OS User Name </th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
@@ -173,6 +174,7 @@
                                             <td>{{ $getPassData->check_in }}</td>
                                             <td>{{ $getPassData->check_out }}</td>
                                             <td>{{ $getPassData->card_no }}</td>
+                                            <td>{{ $getPassData->issue_get_current_pc_user }}</td>
                                             <td>
                                                 @if ($getPassData->status == 0)
                                                     <span class="badge badge-success">Active</span>
@@ -206,6 +208,7 @@
                                         <th>Check-In</th>
                                         <th>Check-Out</th>
                                         <th>ID Card No</th>
+                                        <th> OS User Name </th>
                                         <th>Status</th>
                                     </tr>
                                 </thead>
@@ -220,6 +223,7 @@
                                             <td>{{ $getPassDataVisited->check_in }}</td>
                                             <td>{{ $getPassDataVisited->check_out }}</td>
                                             <td>{{ $getPassDataVisited->card_no }}</td>
+                                            <td>{{ $getPassDataVisited->return_get_current_pc_user }}</td>
                                             <td>
                                                 @if ($getPassDataVisited->status == 1)
                                                     <span class="badge badge-danger">Already Visited</span>
