@@ -37,9 +37,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link page-scroll" href="{{url('pre-visitor')}}">Pre-Visit</a>
-                    </li>
+                    </li> --}}
                     <li class="nav-item">
                         <a class="nav-link page-scroll" href="{{url('visitor-registration')}}">Registration</a>
                     </li>

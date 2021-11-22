@@ -33,9 +33,9 @@
                 <div class="collapse navbar-collapse order-3" id="navbarCollapse">
                     <!-- Left navbar links -->
                     <ul class="navbar-nav">
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a href="{{ url('pre-visitor') }}" class="nav-link">Pre-Visitor</a>
-                        </li>
+                        </li> --}}
                         <li class="nav-item">
                             <a href="{{ url('visitor-registration') }}" class="nav-link">Registration</a>
                         </li>

@@ -8,6 +8,7 @@ use App\Models\Patient;
 use App\Models\Vendor;
 use App\Models\Visitor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class VisitorController extends Controller
 {
@@ -142,4 +143,22 @@ class VisitorController extends Controller
         }
     }
 
+    public function visitorHistory()
+    {
+        $visitorHistoryData = DB::table('get_pass')->latest()->get();
+        return view('backend.visitor.visitorHistory', compact('visitorHistoryData'));
+    }
+
+    public function visitorDetails($id)
+    {
+        $visitorDetails = DB::table('get_pass')->where('id',$id)->first();
+
+        $patientsInfo = '';
+
+        if ($visitorDetails->category == 'patient') {
+            $patientsInfo = DB::table('ipd_admitted_patients')->where('mobile',$visitorDetails->c_mobile)->first();
+        }
+        // dd($patientsInfo);
+        return view('backend.visitor.visitorDetails', compact('visitorDetails','patientsInfo'));
+    }
 }

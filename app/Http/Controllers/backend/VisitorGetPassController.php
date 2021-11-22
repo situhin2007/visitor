@@ -7,14 +7,13 @@ use App\Models\VisitorGetPass;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class VisitorGetPassController extends Controller
 {
     public function getPassDataStore(Request $request)
     {
-        // dd($request->all());
-
-        $this->validate($request, [
+        $validator = Validator::make($request->all(), [
             'c_name' => 'required',
             'c_mobile' => 'required',
             'visitor_name' => 'required',
@@ -23,6 +22,11 @@ class VisitorGetPassController extends Controller
             'check_out' => 'required',
             'check_in' => 'required',
         ]);
+
+        // Validate the input and return correct response
+        if ($validator->fails()) {
+            return response()->json(['success' => false, 'errors' => $validator->getMessageBag()->toArray()], 422);
+        }
 
         $getPass = new VisitorGetPass();
         $getPass->c_name = $request->c_name;
@@ -38,7 +42,7 @@ class VisitorGetPassController extends Controller
         $getPass->status = 0;
 
         if ($getPass->save()) {
-            DB::table('id_card_info')->where('card_no', $request->card_no)->update(['status' => 1]);
+            DB::table('id_card_info')->where('id_card_no', $request->card_no)->update(['status' => 1]);
             return response()->json('sucess');
         } else {
             return response()->json('error');

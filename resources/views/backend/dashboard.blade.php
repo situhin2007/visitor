@@ -157,30 +157,41 @@
                                         <th>Visited Date</th>
                                         <th>Check-In</th>
                                         <th>Check-Out</th>
-                                        <th> ID Card No</th>
-                                        <th> OS User Name </th>
+                                        <th>Card No</th>
+                                        <th> Issued By </th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($getPassIssueData as $getPassData)
+
                                         <tr class="text-sm">
+                                            @php
+                                                $nowTime = date('H:i:s', time());
+                                            @endphp
+
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $getPassData->category }}</td>
                                             <td>{{ $getPassData->visitor_name }}</td>
                                             <td>{{ $getPassData->visitor_mobile }}</td>
                                             <td>{{ $getPassData->visited_date }}</td>
-                                            <td>{{ $getPassData->check_in }}</td>
-                                            <td>{{ $getPassData->check_out }}</td>
+                                            <td>{{ date('h:i:s', strtotime($getPassData->check_in)) }}</td>
+                                            <td>{{ date('h:i:s', strtotime($getPassData->check_out)) }}</td>
                                             <td>{{ $getPassData->card_no }}</td>
                                             <td>{{ $getPassData->issue_get_current_pc_user }}</td>
                                             <td>
-                                                @if ($getPassData->status == 0)
-                                                    <span class="badge badge-success">Active</span>
-                                                @else
 
+                                                @if ($nowTime <= $getPassData->check_out)
+                                                    @if ($getPassData->status == 0)
+                                                        <span class="badge badge-danger">Active</span>
+                                                    @endif
+                                                @else
+                                                    @if ($getPassData->status == 0)
+                                                        <span class="badge badge-success">Active</span>
+                                                    @endif
                                                 @endif
+
                                             </td>
 
                                             <td>
@@ -207,8 +218,8 @@
                                         <th>Visited Date</th>
                                         <th>Check-In</th>
                                         <th>Check-Out</th>
-                                        <th>ID Card No</th>
-                                        <th> OS User Name </th>
+                                        <th>Card No</th>
+                                        <th> Received By </th>
                                         <th>Status</th>
                                     </tr>
                                 </thead>
@@ -226,7 +237,7 @@
                                             <td>{{ $getPassDataVisited->return_get_current_pc_user }}</td>
                                             <td>
                                                 @if ($getPassDataVisited->status == 1)
-                                                    <span class="badge badge-danger">Already Visited</span>
+                                                    <span class="badge badge-danger">Visited</span>
                                                 @else
 
                                                 @endif
@@ -294,9 +305,7 @@
                                         <label>Name<span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" name="visitor_name" id="visitor_name"
                                             placeholder="Enter name">
-                                        @if ($errors->has('visitor_name'))
-                                            <span class="text-danger">{{ $errors->first('visitor_name') }}</span>
-                                        @endif
+                                            <span class="text-danger" id="visitorNameError"></span>
                                     </div>
                                 </div>
 
@@ -306,9 +315,7 @@
                                         <label>Mobile<span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" name="visitor_mobile" id="visitor_mobile"
                                             placeholder="Enter mobile">
-                                        @if ($errors->has('visitor_mobile'))
-                                            <span class="text-danger">{{ $errors->first('visitor_mobile') }}</span>
-                                        @endif
+                                            <span class="text-danger" id="visitorMobileError"></span>
                                     </div>
                                 </div>
 
@@ -321,9 +328,7 @@
                                                 <option value="{{ $idCard->id_card_no }}">{{ $idCard->id_card_no }}</option>
                                             @endforeach
                                         </select>
-                                        @if ($errors->has('card_no'))
-                                            <span class="text-danger">{{ $errors->first('card_no') }}</span>
-                                        @endif
+                                        <span class="text-danger" id="idCardNoError"></span>
                                     </div>
                                 </div>
 
@@ -331,6 +336,7 @@
                                     <div class="form-group">
                                         <label>Check In<span class="text-danger">*</span></label>
                                         <input type="time" class="form-control" name="check_in" id="check_in">
+                                        <span class="text-danger" id="checkInError"></span>
                                     </div>
                                 </div>
 
@@ -338,6 +344,7 @@
                                     <div class="form-group">
                                         <label>Check Out<span class="text-danger">*</span></label>
                                         <input type="time" class="form-control" name="check_out" id="check_out">
+                                        <span class="text-danger" id="checkOutError"></span>
                                     </div>
                                 </div>
 
@@ -420,14 +427,14 @@
 
         $(function() {
             $('#issueCardTable').DataTable({
-                //    scrollX:'true',
+                   scrollX:'true',
                 //    scrollY:'true'
             });
         });
 
         $(function() {
             $('#returnCardTable').DataTable({
-                //    scrollX:'true',
+                   scrollX:'true',
                 //    scrollY:'true'
             });
         });
@@ -501,13 +508,18 @@
                     $('#visitor_mobile').val('');
                     $('#card_no').val('');
                     $('#category').val('');
+
+                    window.location.reload();
                 },
                 error: function(data) {
                     alert('Operation Failed');
-                    // Toast.fire({
-                    //     type: 'success',
-                    //     title: 'Operation Failed'
-                    // })
+                    var response = data.responseJSON.errors;
+
+                    $('#visitorNameError').text(response.visitor_name[0]);
+                    $('#visitorMobileError').text(response.visitor_mobile[0]);
+                    $('#idCardNoError').text(response.card_no[0]);
+                    $('#checkInError').text(response.check_in[0]);
+                    $('#checkOutError').text(response.check_out[0]);
                 }
             });
         });

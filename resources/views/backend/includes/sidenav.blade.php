@@ -52,18 +52,26 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
+              {{-- <li class="nav-item">
                 <a href="{{ url('visitor/index') }}" class="nav-link {{ request()->is('visitor/index') ? 'active' :''}}">
                   <i class="far fa-circle nav-icon text-green"></i>
                   <p> All Visitor</p>
                 </a>
-              </li>
-              <li class="nav-item">
+              </li> --}}
+              {{-- <li class="nav-item">
                 <a href="{{ url('visitor/create') }}" class="nav-link {{ request()->is('visitor/create') ? 'active' :''}}">
                   <i class="far fa-circle nav-icon text-green"></i>
                   <p>Create Visitor</p>
                 </a>
+              </li> --}}
+
+              <li class="nav-item">
+                <a href="{{ url('visitor/history') }}" class="nav-link {{ request()->is('visitor/history') ? 'active' :''}}">
+                  <i class="far fa-circle nav-icon text-green"></i>
+                  <p> Visitor History</p>
+                </a>
               </li>
+
             </ul>
           </li>
 
@@ -163,14 +171,14 @@
             </ul>
           </li>
 
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a href="{{url('pre_visitor_registration/index')}}" class="nav-link {{ request()->is('pre_visitor_registration/index') ? 'active' :''}}">
                     <i class="nav-icon fas fa-users text-green"></i>
                     <p>
                         Pre Visitor Request
                     </p>
                 </a>
-            </li>
+            </li> --}}
 
             <li class="nav-item">
                 <a href="{{url('pre_visitor_request_list/index')}}" class="nav-link {{ request()->is('pre_visitor_request_list/index') ? 'active' :''}}">
