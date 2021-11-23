@@ -52,6 +52,9 @@ Route::middleware('auth')->group(function () {
     Route::get('visitor/history', [VisitorController::class, 'visitorHistory']);
     Route::get('visitor/details/{id}', [VisitorController::class, 'visitorDetails'])->name('visit.details');
 
+    //card to visitor info
+    Route::get('visitor/card-to-visitor-info/{card_no}', [VisitorController::class, 'cardToVisitorInfo']);
+
     //patient routes
     Route::get('patient/index', [PatientController::class, 'index']);
     Route::get('patient/create', [PatientController::class, 'create']);

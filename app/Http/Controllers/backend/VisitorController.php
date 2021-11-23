@@ -161,4 +161,19 @@ class VisitorController extends Controller
         // dd($patientsInfo);
         return view('backend.visitor.visitorDetails', compact('visitorDetails','patientsInfo'));
     }
+
+    public function cardToVisitorInfo($card_no)
+    {
+        // dd($card_no);
+        $visitorDetails = DB::table('get_pass')->where('card_no',$card_no)->first();
+
+        // dd($visitorDetails);
+        $patientsInfo = '';
+
+        if ($visitorDetails->category == 'patient') {
+            $patientsInfo = DB::table('ipd_admitted_patients')->where('mobile',$visitorDetails->c_mobile)->first();
+        }
+        // dd($patientsInfo);
+        return view('backend.visitor.visitorDetails', compact('visitorDetails','patientsInfo'));
+    }
 }

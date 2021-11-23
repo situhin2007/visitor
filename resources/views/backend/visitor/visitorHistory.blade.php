@@ -107,7 +107,7 @@
         $(function () {
           $('#visitor').DataTable({
            scrollX:'true',
-           scrollY:'50vh'
+        //    scrollY:'50vh'
           });
         });
       </script>

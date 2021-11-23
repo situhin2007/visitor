@@ -46,9 +46,9 @@
 
           </div>
         </div>
-        <div class="card-footer">
+        {{-- <div class="card-footer">
             <button type="submit" class="btn btn-success">Back</button>
-        </div>
+        </div> --}}
       </div>
     </div>
     <!-- /.container-fluid -->
