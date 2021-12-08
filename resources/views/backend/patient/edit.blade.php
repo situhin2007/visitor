@@ -86,6 +86,16 @@
 
               <div class="col-md-6">
                 <div class="form-group">
+                  <label>Admission No <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control  @error('admission_no') is-invalid @enderror" name="admission_no" value="{{$patient->admission_no}}" placeholder="Enter admission no">
+                    @if($errors->has('admission_no'))
+                        <span class="text-danger">{{ $errors->first('admission_no') }}</span>
+                    @endif
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-group">
                   <label>Admission Date <span class="text-danger">*</span></label>
                   <input type="date" class="form-control  @error('admission_date') is-invalid @enderror" name="admission_date" value="{{$patient->admission_date}}" placeholder="Enter admission date">
                     @if($errors->has('admission_date'))

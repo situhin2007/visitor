@@ -26,9 +26,10 @@ class PatientController extends Controller
             'name' => 'required',
             'mobile' => 'required|unique:ipd_admitted_patients',
             'ward_no' => 'required',
-            'cabin_no' => 'required|unique:ipd_admitted_patients',
+            'cabin_no' => 'required',
             'seat_no' => 'required',
             'age' => 'required',
+            'admission_no' => 'required|unique:ipd_admitted_patients',
             'admission_date' => 'required',
         ]);
 
@@ -40,6 +41,7 @@ class PatientController extends Controller
         $patients->seat_no = $request->seat_no;
         $patients->reference_no = rand(1000,9999);
         $patients->age = $request->age;
+        $patients->admission_no = $request->admission_no;
         $patients->admission_date = $request->admission_date;
 
         if ($patients->save()) {
@@ -59,11 +61,12 @@ class PatientController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
-            'mobile' => 'required',
+            'mobile' => 'required|unique:ipd_admitted_patients',
             'ward_no' => 'required',
             'cabin_no' => 'required',
             'seat_no' => 'required',
             'age' => 'required',
+            'admission_no' => 'required|unique:ipd_admitted_patients',
             'admission_date' => 'required',
         ]);
 
@@ -75,6 +78,7 @@ class PatientController extends Controller
         $patients->seat_no = $request->seat_no;
         $patients->reference_no = rand(1000,9999);
         $patients->age = $request->age;
+        $patients->admission_no = $request->admission_no;
         $patients->admission_date = $request->admission_date;
 
         if ($patients->save()) {

@@ -195,7 +195,7 @@
                                             </td>
 
                                             <td>
-                                                <a class="btn btn-info btn-sm" href="{{ route('getPassChangeStatus',$getPassData->id) }}">Change Status</a>
+                                                <a class="btn btn-info btn-sm" href="{{ route('getPassChangeStatus',$getPassData->id) }}"><i class="fa fa-arrow-right"></i></a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -427,14 +427,14 @@
 
         $(function() {
             $('#issueCardTable').DataTable({
-                   scrollX:'true',
+                //    scrollX:'true',
                 //    scrollY:'true'
             });
         });
 
         $(function() {
             $('#returnCardTable').DataTable({
-                   scrollX:'true',
+                //    scrollX:'true',
                 //    scrollY:'true'
             });
         });

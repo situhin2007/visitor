@@ -33,6 +33,7 @@
                   <th class="text-center">Seat No </th>
                   <th class="text-center">Reference No </th>
                   <th class="text-center">Age </th>
+                  <th class="text-center"> Admission No </th>
                   <th class="text-center"> Admission Date </th>
                   <th class="text-center">Action</th>
                 </tr>
@@ -48,6 +49,7 @@
                             <td class="text-center"> {{ $patient_value->seat_no }}</td>
                             <td class="text-center"> {{ $patient_value->reference_no }}</td>
                             <td class="text-center"> {{ $patient_value->age }}</td>
+                            <td class="text-center"> {{ $patient_value->admission_no }}</td>
                             <td class="text-center"> {{ $patient_value->admission_date }}</td>
                             <td class="text-center">
                                 <a href="{{ url('patient/edit',$patient_value->id) }}" class="btn btn-info btn-sm"> <i class="fa fa-edit"></i> </a>

@@ -33,6 +33,7 @@
                     <label>Ward No</label>: {{ $patientsInfo->ward_no }} <br/>
                     <label>Cabin No</label>: {{ $patientsInfo->cabin_no }} <br/>
                     <label>Age</label>: {{ $patientsInfo->age }} <br/>
+                    <label>Admission No</label>: {{ $patientsInfo->admission_no }} <br/>
                     <label>Admission Date</label>: {{ $patientsInfo->admission_date }} <br/>
                 @endif
 
